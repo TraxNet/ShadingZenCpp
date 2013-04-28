@@ -7,7 +7,7 @@ with optimized code for ARM Neon and Intel SSE.
 
 ## Current state
 
-This library is currently is in its infant state, there are many areas to develop and it currently lacks ARM Neon support. 
+This library is currently in its infant state, there are many areas to develop and it currently lacks ARM Neon support. 
 NOTE: It is still not ready to be used in any project.
 
 ## License
