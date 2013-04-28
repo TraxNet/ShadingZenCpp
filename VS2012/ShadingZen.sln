@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{68A3A348-BB44-4767-B9B7-77F931F8F13B}"
+	ProjectSection(SolutionItems) = preProject
+		..\Readme.me = ..\Readme.me
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShadingZenCpp", "Lib\ShadingZen.vcxproj", "{741BD7EF-AD25-40CF-8078-0DDD53F60703}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShadingZen_Tests", "Tests\ShadingZen_Tests.vcxproj", "{58E039C6-7E54-4236-99E7-6162300D495B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{741BD7EF-AD25-40CF-8078-0DDD53F60703}.Debug|Win32.ActiveCfg = Debug|Win32
+		{741BD7EF-AD25-40CF-8078-0DDD53F60703}.Debug|Win32.Build.0 = Debug|Win32
+		{741BD7EF-AD25-40CF-8078-0DDD53F60703}.Release|Win32.ActiveCfg = Release|Win32
+		{741BD7EF-AD25-40CF-8078-0DDD53F60703}.Release|Win32.Build.0 = Release|Win32
+		{58E039C6-7E54-4236-99E7-6162300D495B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{58E039C6-7E54-4236-99E7-6162300D495B}.Debug|Win32.Build.0 = Debug|Win32
+		{58E039C6-7E54-4236-99E7-6162300D495B}.Release|Win32.ActiveCfg = Release|Win32
+		{58E039C6-7E54-4236-99E7-6162300D495B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

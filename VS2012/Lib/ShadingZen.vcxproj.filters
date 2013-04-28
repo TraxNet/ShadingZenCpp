@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="include\math">
+      <UniqueIdentifier>{5e452995-320f-4017-95b5-3ca8b38f20f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\math">
+      <UniqueIdentifier>{bcbab1ac-4001-4d56-9488-3c22b1045b2b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\shz\math\math.hpp">
+      <Filter>include\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\shz\math\matrix.hpp">
+      <Filter>include\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\shz\math\types.hpp">
+      <Filter>include\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\shz\math\vector.hpp">
+      <Filter>include\math</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\math\matrix4f_sse.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\math\vector3f_sse.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\math\vector4f_sse.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
