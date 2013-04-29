@@ -41,10 +41,13 @@ void shz::math::matrix<shz::math::f32, 4, 4>::mul(const shz::math::f32* left, co
 	shz::math::f32 left_transposed[shz::math::matrix<shz::math::f32, 4, 4>::size];
 	matrix<shz::math::f32, 4, 4>::transpose(left, left_transposed);
 
-	for(size_t m=0; m<mindimension; ++m){
+	for(size_t m=0; m<4; ++m){
+		__m128 right_operand = _mm_load_ps(right);
 		shz::math::f32* transposed = left_transposed;
 
-		for(size_t n=0; n<mindimension; ++n){
+		for(size_t n=0; n<4; ++n){
+			__m128 left_operand = _mm_load_ps(transposed);
+			
 			*target = shz::math::f32();
 
 			for(size_t i=0; i<4; ++i){
