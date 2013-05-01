@@ -1,10 +1,21 @@
-
+import common ;
+import os ;
 import boost ; 
 boost.use-project 1.53 ; 
 
-exe shadingzen-tests 
-	: [ glob-tree *.cpp ] ../src//shadingzen 
-	: <include>../include <include>../dependencies/boost
-	: <linkflags>/LIBPATH:"./dependencies/boost/stage/lib" 
-	: <link>static <toolset>msvc <define>SHZ_SSE
-	;
+if [ os.name ] = NT
+{
+	exe shadingzen-tests 
+		: [ glob-tree *.cpp ] ../src//shadingzen 
+		: <include>../include <include>../dependencies/boost
+		: <linkflags>/LIBPATH:"./dependencies/boost/stage/lib" 
+		: <link>static <toolset>msvc <define>SHZ_SSE
+		;
+} else {
+	exe shadingzen-tests 
+		: [ glob-tree *.cpp ] ../src//shadingzen 
+		: <include>../include <include>../dependencies/boost
+		: <cxxflags>-std=c++11 <cxxflags>-stdlib=libc++ <cxxflags>-msse4.1
+		: <link>static <define>SHZ_SSE
+		;
+}

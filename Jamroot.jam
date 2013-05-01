@@ -1,5 +1,6 @@
 use-project shadingzen : src ;
 
+import toolset : using ; using clang-darwin ;
 using boost : 1.53 : <include>../dependencies/boost <library>../dependencies/boost/stage/lib <link>static ; 
 
 build-project tests ;
