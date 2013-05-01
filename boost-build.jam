@@ -1,0 +1,3 @@
+BOOST_ROOT = ./dependencies/boost/ ;
+
+boost-build $(BOOST_ROOT)/tools/build/v2 ;

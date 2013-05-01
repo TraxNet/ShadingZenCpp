@@ -1,0 +1,10 @@
+project shadingzen
+    : requirements <link>static 
+    ;
+
+lib shadingzen 
+	: [ glob-tree *.cpp ]
+	: <include>../dependencies/boost <include>../include
+	: <linkflags>/LIBPATH:"./dependencies/boost/stage/lib" 
+	: <link>static <toolset>msvc <define>SHZ_SSE
+	;

@@ -1,0 +1,10 @@
+
+import boost ; 
+boost.use-project 1.53 ; 
+
+exe shadingzen-tests 
+	: [ glob-tree *.cpp ] ../src//shadingzen 
+	: <include>../include <include>../dependencies/boost
+	: <linkflags>/LIBPATH:"./dependencies/boost/stage/lib" 
+	: <link>static <toolset>msvc <define>SHZ_SSE
+	;
