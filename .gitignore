@@ -29,6 +29,7 @@ output
 ipch/
 obj/
 [Bb]in
+[Bb]in-tests
 [Dd]ebug*/
 [Rr]elease*/
 Ankh.NoLoad

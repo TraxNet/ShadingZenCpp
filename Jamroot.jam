@@ -1,6 +1,37 @@
-use-project shadingzen : src ;
+import common ;
+import os ;
+import toolset : using ; 
 
-import toolset : using ; using clang-darwin ;
+path-constant TOP : . ;
+
+project shadingzen-all
+    : requirements <link>static 
+    : default-build
+      debug release
+    ;
+
+use-project shadingzen : src ;
+use-project shadingzen-tests : tests ;
+
+
+if [ os.name ] = NT
+{
+	using msvc ;
+} else if [ os.name ] = MACOSX {
+	using clang-darwin ;
+} else {
+	using gcc ;
+}
+ 
 using boost : 1.53 : <include>../dependencies/boost <library>../dependencies/boost/stage/lib <link>static ; 
 
+build-project src ;
 build-project tests ;
+
+install bin : src//shadingzen :
+    <variant>release:<location>$(TOP)/bin/release
+    <variant>debug:<location>$(TOP)/bin/debug ;
+
+install bin-tests : tests//shadingzen-tests :
+    <variant>release:<location>$(TOP)/bin-tests/release
+    <variant>debug:<location>$(TOP)/bin-tests/debug ;

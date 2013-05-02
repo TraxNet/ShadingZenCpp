@@ -3,6 +3,12 @@ import os ;
 import boost ; 
 boost.use-project 1.53 ; 
 
+project shadingzen-tests
+    : requirements <link>static 
+    : default-build
+      debug release
+    ;
+
 if [ os.name ] = NT
 {
 	exe shadingzen-tests 

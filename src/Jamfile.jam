@@ -3,6 +3,8 @@ import os ;
 
 project shadingzen
     : requirements <link>static 
+    : default-build
+      debug release
     ;
 
 if [ os.name ] = NT
@@ -21,3 +23,4 @@ if [ os.name ] = NT
 		: <link>static <define>SHZ_SSE
 		;
 }
+
