@@ -87,6 +87,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\include\shz\math\math.hpp" />
     <ClInclude Include="..\..\include\shz\math\matrix.hpp" />
+    <ClInclude Include="..\..\include\shz\math\quaternion.hpp" />
     <ClInclude Include="..\..\include\shz\math\types.hpp" />
     <ClInclude Include="..\..\include\shz\math\vector.hpp" />
   </ItemGroup>

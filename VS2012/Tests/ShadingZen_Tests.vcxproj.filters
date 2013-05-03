@@ -29,5 +29,8 @@
     <ClCompile Include="..\..\tests\Math\vector4_tests.cpp">
       <Filter>src\math</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\tests\Math\quaternion_tests.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

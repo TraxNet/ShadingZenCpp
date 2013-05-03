@@ -8,7 +8,7 @@
 
 namespace shz{ namespace math{
 		
-	template <typename T, int C, int R> struct _declspec(align(16)) matrix
+	template <typename T, int C, int R> struct _ALIGNED(16) matrix
 	{
 		static const size_t size = C*R;
 		static const size_t mindimension = ::boost::static_unsigned_min<C, R>::value;
@@ -142,7 +142,7 @@ namespace shz{ namespace math{
 		std::array<T, size> data;
 	};
 
-	template <> struct _declspec(align(16)) matrix<typename shz::math::f32, 4, 4>
+	template <> struct _ALIGNED(16) matrix<typename shz::math::f32, 4, 4>
 	{
 		static const size_t size = 4*4;
 		static const size_t mindimension = ::boost::static_unsigned_min<4, 4>::value;

@@ -102,6 +102,17 @@ namespace shz{ namespace math{
 	//! 64 bit floating point variable.
 	/** This is a typedef for double, it ensures portability of the engine. */
 	typedef double				f64;
+
+	// MEMORY ALIGNEMENT MACROS (MAINLY FOR SSE)
+	#if defined(_MSC_VER)
+	#define _ALIGNED(x) __declspec(align(x))
+	#else
+	#if defined(__GNUC__)
+	#define _ALIGNED(x) __attribute__ ((aligned(x)))
+	#endif
+	#endif
+
+#define _ALIGNED_TYPE(t,x) typedef t _ALIGNED(x)
 } }
 
 #endif // __SHZ_TYPES__

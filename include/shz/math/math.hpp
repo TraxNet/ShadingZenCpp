@@ -22,9 +22,12 @@
 #define ROUND_DOWN(x, s) ((x) & ~((s)-1))
 
 namespace shz{ namespace math{	
+
+	// MATH CONSTANTS
 	const f32 EPSILON_F32 = 0.000001f;
 	const f64 EPSILON_F64 = 0.00000001;
-
+	const f32 PI = 3.141592653589f;
+	const f32 HALF_PI = 1.5707963267946f;
 
 
 	inline bool equals(const f32 a, const f32 b, const f32 epsilon=EPSILON_F32){
@@ -44,6 +47,14 @@ namespace shz{ namespace math{
 	{
 		return fabs(a) <= epsilon;
 	}	
+
+	inline f32 toDegrees(f32 radians){
+		return radians*180/PI;
+	}
+
+	inline f32 toRadians(f32 degrees){
+		return degrees*PI/180;
+	}
 
 	/** TODO: Check concepts for MathType parameter and ensure if contains the required functionality */
 	template<class MathType, size_t ArraySize> static void add_array(const typename MathType::underlaying_type* left, const typename MathType::underlaying_type* right, typename MathType::underlaying_type* target){	

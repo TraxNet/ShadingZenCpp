@@ -8,7 +8,7 @@
 
 
 namespace shz{ namespace math{
-		template <typename T, int C> struct _declspec(align(16)) vector
+		template <typename T, int C> struct _ALIGNED(16) vector
 		{
 			static const size_t size = C;
 
@@ -127,7 +127,7 @@ namespace shz{ namespace math{
 			_declspec(align(16)) std::array<T, size> data;			
 		};
 
-		template <>  struct _declspec(align(16)) vector<float, 3>
+		template <>  struct _ALIGNED(16) vector<float, 3>
 		{
 			static const size_t size = 3;
 
@@ -201,7 +201,7 @@ namespace shz{ namespace math{
 			};
 		};
 
-		template <>  struct _declspec(align(16)) vector<float, 4>
+		template <>  struct _ALIGNED(16) vector<float, 4>
 		{
 			static const size_t size = 4;
 

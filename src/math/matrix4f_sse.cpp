@@ -10,6 +10,7 @@ void shz::math::matrix<shz::math::f32, 4, 4>::add(const shz::math::f32* left, co
 		left+=4; right+=4; target+=4;
 	}
 }
+
 void shz::math::matrix<shz::math::f32, 4, 4>::add(const shz::math::f32* left, const shz::math::f32 value, shz::math::f32* target){
 	__m128 b = _mm_load1_ps(&value);
 	for(size_t i=0; i < 4; ++i){
@@ -19,6 +20,7 @@ void shz::math::matrix<shz::math::f32, 4, 4>::add(const shz::math::f32* left, co
 		left+=4; target+=4;
 	}
 }
+
 void shz::math::matrix<shz::math::f32, 4, 4>::sub(const shz::math::f32* left, const shz::math::f32* right, shz::math::f32* target){
 	for(size_t i=0; i < 4; ++i){
 		__m128 a = _mm_load_ps(left);
@@ -28,6 +30,7 @@ void shz::math::matrix<shz::math::f32, 4, 4>::sub(const shz::math::f32* left, co
 		left+=4; right+=4; target+=4;
 	}
 }
+
 void shz::math::matrix<shz::math::f32, 4, 4>::sub(const shz::math::f32* left, const shz::math::f32 value, shz::math::f32* target){
 	__m128 b = _mm_load1_ps(&value);
 	for(size_t i=0; i < 4; ++i){
@@ -37,6 +40,7 @@ void shz::math::matrix<shz::math::f32, 4, 4>::sub(const shz::math::f32* left, co
 		left+=4; target+=4;
 	}
 }
+
 void shz::math::matrix<shz::math::f32, 4, 4>::mul(const shz::math::f32* left, const shz::math::f32*right, shz::math::f32* target) {
 	shz::math::f32 left_transposed[shz::math::matrix<shz::math::f32, 4, 4>::size];
 	matrix<shz::math::f32, 4, 4>::transpose(left, left_transposed);
@@ -63,6 +67,7 @@ void shz::math::matrix<shz::math::f32, 4, 4>::mul(const shz::math::f32* left, co
 		right += 4;
 	}
 }
+
 void shz::math::matrix<shz::math::f32, 4, 4>::mul(const shz::math::f32* left, const shz::math::f32 value, shz::math::f32 *target){
 	__m128 b = _mm_load1_ps(&value);
 	for(size_t i=0; i < 4; ++i){
@@ -72,6 +77,7 @@ void shz::math::matrix<shz::math::f32, 4, 4>::mul(const shz::math::f32* left, co
 		left+=4; target+=4;
 	}
 }
+
 void shz::math::matrix<shz::math::f32, 4, 4>::mul_vec(const shz::math::f32* left, const shz::math::f32* right, shz::math::f32* target) {
 	for(size_t m=0; m<4; ++m){
 		*target = shz::math::f32();
@@ -81,6 +87,7 @@ void shz::math::matrix<shz::math::f32, 4, 4>::mul_vec(const shz::math::f32* left
 		target++;
 	}
 }
+
 void shz::math::matrix<shz::math::f32, 4, 4>::transpose(const shz::math::f32* left, shz::math::f32* target){
 	for(size_t n=0; n<4; ++n){
 		for(size_t m=0; m<4; ++m){
