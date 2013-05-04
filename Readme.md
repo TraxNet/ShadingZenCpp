@@ -2,13 +2,28 @@
 
 ShadingZen C++ is an optimized library for computer graphics applications. It is meant to replace some internal code in [ShadingZen
 Engine](https://github.com/TraxNet/ShadingZen) which means this C++ code must compile for Android. Target is to have it running 
-with optimized code for ARM Neon and Intel SSE.
+with optimized code for ARM Neon and Intel/AMD SSE instruction sets.
 
 
-## Current state
+## Current status
 
 This library is currently in its infant state, there are many areas to develop and it currently lacks ARM Neon support. 
-NOTE: It is still not ready to be used in any project.
+Current target is to have set of 2D/3D computational classes ready (vectors, matrices, bounding boxes, quaternions) to perform basic math operations.
+After that, some raytracing queries (for example for occlusion discarding) will be implemented. 
+
+As of May 2013, the source compiles against Boost 1.53 on:
+- Linux GCC 4.7.20121109 (probably works with 4.6)
+- MacOSX Clang 3.2
+- MSVC 2012
+
+Supported SIMD instruction sets: 
+SSE3: No
+SSE4.1: Yes
+NEON ARM: No
+AVX: No
+
+NOTE: ShadingZenCpp is still not ready to be used in any project.
+
 
 ## License
 
