@@ -15,7 +15,18 @@ if [ os.name ] = NT
 		: <toolset>msvc 
 		: <linkflags>/LIBPATH:"./dependencies/boost/stage/lib" <link>static  <define>SHZ_SSE
 		;
-} else {
+} 
+else if [ os.name ] = LINUX
+{
+	lib shadingzen 
+		: [ glob-tree *.cpp ] $(ROT)/dependencies/boost/stage/lib/libboost_unit_test_framework.a
+		: <include>../dependencies/boost <include>../include
+		: <toolset>gcc <cxxflags>-std=c++11 <cxxflags>-msse4.1  <linkflags>-L./dependencies/boost/stage/lib/ <linkflags>-lboost_iostreams <linkflags>-lboost_system 
+		: <link>static <define>SHZ_SSE
+		;
+} 
+else 
+{
 	lib shadingzen 
 		: [ glob-tree *.cpp ] $(ROT)/dependencies/boost/stage/lib/libboost_unit_test_framework.a
 		: <include>../dependencies/boost <include>../include
