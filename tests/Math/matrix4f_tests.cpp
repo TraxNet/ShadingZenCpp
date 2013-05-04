@@ -1,7 +1,7 @@
 #include <boost/test/unit_test.hpp>
 #include <shz/math/matrix.hpp>
  
-extern bool is_aligned(void *p, int N);
+extern bool is_aligned(void *p, intptr_t N);
 
 BOOST_AUTO_TEST_CASE(matrix4fConstructors)
 {

@@ -12,7 +12,7 @@ namespace shz{ namespace math{
 		{
 			static const size_t size = C;
 
-			typedef typename T underlaying_type;
+			typedef T underlaying_type;
 
 			vector(){}
 			/*Vector(std::initializer_list<T> list){ 
@@ -124,7 +124,7 @@ namespace shz{ namespace math{
 			}
 			
 
-			_declspec(align(16)) std::array<T, size> data;			
+			std::array<T, size> data;			
 		};
 
 		template <>  struct _ALIGNED(16) vector<float, 3>
@@ -157,8 +157,8 @@ namespace shz{ namespace math{
 			vector<float,3>& operator /= (const vector<float,3>& other) { vector<float,3>::div(&data[0], &other.data[0], &data[0]); return *this; }
 			vector<float,3>& operator /= (const float value) { vector<float,3>::div(&data[0], value, &data[0]); return *this; }
 
-			inline void* operator new[](size_t x) { return _aligned_malloc(x, 16); }
-			inline void operator delete[](void* x) { if (x) _aligned_free(x); }
+			inline void* operator new[](size_t x) { return _ALIGNED_ALLOC(x, 16); }
+			inline void operator delete[](void* x) { if (x) _ALIGNED_DEALLOC(x); }
 
 			inline void copy(const vector<float,3>& other){
 				std::copy(other.data.cbegin(), other.data.cend(), data.begin());
@@ -231,8 +231,8 @@ namespace shz{ namespace math{
 			vector<float,4>& operator /= (const vector<float,4>& other) { vector<float,4>::div(&data[0], &other.data[0], &data[0]); return *this; }
 			vector<float,4>& operator /= (const float value) { vector<float,4>::div(&data[0], value, &data[0]); return *this; }
 
-			inline void* operator new[](size_t x) { return _aligned_malloc(x, 16); }
-			inline void operator delete[](void* x) { if (x) _aligned_free(x); }
+			inline void* operator new[](size_t x) { return _ALIGNED_ALLOC(x, 16); }
+			inline void operator delete[](void* x) { if (x) _ALIGNED_DEALLOC(x); }
 
 			inline void copy(const vector<float,4>& other){
 				std::copy(other.data.cbegin(), other.data.cend(), data.begin());

@@ -7,14 +7,14 @@
 	Workaround: either declare the variable with the 16bytes alignment or don't use the auto keyword
 */
 
-bool is_aligned(void *p, int N)
+bool is_aligned(void *p, intptr_t N)
 {
-	return (int)p % N == 0;
+	return (intptr_t)p % N == 0;
 }
 
 BOOST_AUTO_TEST_CASE(vector4fConstructors)
 {
-	_declspec(align(16)) auto v  = shz::math::vector<shz::math::f32, 4>(0.f);
+	shz::math::vector<shz::math::f32, 4> v  = shz::math::vector<shz::math::f32, 4>(0.f);
 	BOOST_CHECK(is_aligned(&v, 16));
 	BOOST_CHECK(v.x == 0.f);
 	BOOST_CHECK(v.y  == 0.f);

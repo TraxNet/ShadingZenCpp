@@ -64,7 +64,10 @@ float shz::math::vector<float,3>::dot(const float* left, const float* right){
 	__m128 b = _mm_load_ps(right);
 	__m128 r = _mm_dp_ps(a, b, 0x71); // Dot product 3 lanes with mask 0111 0001 ([op3:7][write0:3]
 
-	return r.m128_f32[0];
+	float _ALIGNED(16) ret[4];
+	_mm_store_ps(ret, r);
+
+	return ret[0];
 }
 
 float shz::math::vector<float,3>::sqrtlength(const float* source){
@@ -72,7 +75,10 @@ float shz::math::vector<float,3>::sqrtlength(const float* source){
 	__m128 d = _mm_dp_ps(a, a, 0x77); // Dot product with mask 0111 0111 ([op3:7][write0:3]
 	__m128 r = _mm_sqrt_ps(d);
 
-	return r.m128_f32[0];
+	float _ALIGNED(16) ret[4];
+	_mm_store_ps(ret, r);
+
+	return ret[0];
 }
 
 void shz::math::vector<float,3>::normalize(const float* source, float* target){

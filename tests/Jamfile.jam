@@ -19,9 +19,9 @@ if [ os.name ] = NT
 		;
 } else {
 	exe shadingzen-tests 
-		: [ glob-tree *.cpp ] ../src//shadingzen 
+		: [ glob-tree *.cpp ] ../src//shadingzen $(ROT)/dependencies/boost/stage/lib/libboost_unit_test_framework.a
 		: <include>../include <include>../dependencies/boost
-		: <cxxflags>-std=c++11 <cxxflags>-stdlib=libc++ <cxxflags>-msse4.1
+		: <cxxflags>-std=c++11 <cxxflags>-stdlib=libc++ <cxxflags>-msse4.1 <linkflags>-L./dependencies/boost/stage/lib/ <linkflags>-lboost_unit_test_framework <linkflags>-lboost_iostreams <linkflags>-lboost_system <linkflags>-stdlib=libc++
 		: <link>static <define>SHZ_SSE
 		;
 }

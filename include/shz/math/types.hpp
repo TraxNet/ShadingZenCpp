@@ -105,11 +105,16 @@ namespace shz{ namespace math{
 
 	// MEMORY ALIGNEMENT MACROS (MAINLY FOR SSE)
 	#if defined(_MSC_VER)
-	#define _ALIGNED(x) __declspec(align(x))
+		#define _ALIGNED(x) __declspec(align(x))
+		#define _ALIGNED_ALLOC(s, x) _aligned_malloc(s, x)
+		#define _ALIGNED_DEALLOC(p) _aligned_free(p)
 	#else
-	#if defined(__GNUC__)
-	#define _ALIGNED(x) __attribute__ ((aligned(x)))
-	#endif
+		#if defined(__GNUC__) || defined(__clang__)
+		#include <mm_malloc.h>
+		#define _ALIGNED(x) __attribute__ ((aligned(x)))
+		#define _ALIGNED_ALLOC(s, x) _mm_malloc(x, s)
+		#define _ALIGNED_DEALLOC(p) _mm_free(p)
+		#endif
 	#endif
 
 #define _ALIGNED_TYPE(t,x) typedef t _ALIGNED(x)

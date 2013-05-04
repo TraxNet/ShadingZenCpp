@@ -220,7 +220,6 @@ namespace shz{ namespace math{
 		}
 
 		union{
-			struct{ __m128 column1, column2, column3, column4; };
 			std::array<shz::math::f32, size> data;
 		};
 	};
