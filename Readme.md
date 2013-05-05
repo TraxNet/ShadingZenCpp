@@ -17,10 +17,10 @@ As of May 2013, the source compiles against Boost 1.53 on:
 - MSVC 2012
 
 Supported SIMD instruction sets: 
-SSE3: No
-SSE4.1: Yes
-NEON ARM: No
-AVX: No
+- SSE3: No
+- SSE4.1: Yes
+- NEON ARM: No
+- AVX: No
 
 NOTE: ShadingZenCpp is still not ready to be used in any project.
 
