@@ -7,7 +7,7 @@ BOOST_AUTO_TEST_CASE(matrix4fConstructors)
 {
 	shz::math::matrix4f m = shz::math::matrix4f::identity();
 	shz::math::matrix4f n = shz::math::matrix4f::identity();
-	shz::math::matrix4f nn = shz::math::matrix4f(n);
+	shz::math::matrix4f nn(n);
 	BOOST_CHECK(is_aligned(&m, 16));
 	BOOST_CHECK(is_aligned(&n, 16));
 	BOOST_CHECK(is_aligned(&nn, 16));

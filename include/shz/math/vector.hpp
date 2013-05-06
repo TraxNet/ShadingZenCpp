@@ -8,7 +8,7 @@
 
 
 namespace shz{ namespace math{
-		template <typename T, int C> struct _ALIGNED(16) vector
+		template <typename T, int C> struct vector
 		{
 			static const size_t size = C;
 

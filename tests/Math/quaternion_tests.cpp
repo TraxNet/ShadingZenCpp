@@ -1,6 +1,7 @@
 #include <boost/test/unit_test.hpp>
 #include <shz/math/quaternion.hpp>
 
+#define ROUND_ERROR 0.00001
 
 BOOST_AUTO_TEST_CASE(quaternionConstructors)
 {
@@ -25,16 +26,16 @@ BOOST_AUTO_TEST_CASE(quaternionConstructors)
 	v.data[1] = 1.0;
 	v.data[2] = 0.0;
 	q2 = shz::math::quaternion<shz::math::f64>(v, shz::math::HALF_PI);
-	BOOST_CHECK_CLOSE(0.0, q2.x, shz::math::EPSILON_F64);
-	BOOST_CHECK_CLOSE(0.70710679664085752, q2.y, shz::math::EPSILON_F64);
-	BOOST_CHECK_CLOSE(0.0, q2.z, shz::math::EPSILON_F64);
-	BOOST_CHECK_CLOSE(0.70710679664085752, q2.w, shz::math::EPSILON_F64);
+	BOOST_CHECK_CLOSE(0.0, q2.x, ROUND_ERROR);
+	BOOST_CHECK_CLOSE(0.70710679664085752, q2.y, ROUND_ERROR);
+	BOOST_CHECK_CLOSE(0.0, q2.z, ROUND_ERROR);
+	BOOST_CHECK_CLOSE(0.70710679664085752, q2.w, ROUND_ERROR);
 
 	q2 = shz::math::quaternion<shz::math::f64>(0.0, 1.0, 0.0, shz::math::HALF_PI);
-	BOOST_CHECK_CLOSE(0.0, q2.x, shz::math::EPSILON_F64);
-	BOOST_CHECK_CLOSE(0.70710679664085752, q2.y, shz::math::EPSILON_F64);
-	BOOST_CHECK_CLOSE(0.0, q2.z, shz::math::EPSILON_F64);
-	BOOST_CHECK_CLOSE(0.70710679664085752, q2.w, shz::math::EPSILON_F64);
+	BOOST_CHECK_CLOSE(0.0, q2.x, ROUND_ERROR);
+	BOOST_CHECK_CLOSE(0.70710679664085752, q2.y, ROUND_ERROR);
+	BOOST_CHECK_CLOSE(0.0, q2.z, ROUND_ERROR);
+	BOOST_CHECK_CLOSE(0.70710679664085752, q2.w, ROUND_ERROR);
 }
 
 BOOST_AUTO_TEST_CASE(quaternionToMatrix)
@@ -46,6 +47,7 @@ BOOST_AUTO_TEST_CASE(quaternionToMatrix)
 	
 
 }
+
 
 BOOST_AUTO_TEST_CASE(quaternionMuls)
 {

@@ -1,6 +1,7 @@
 import common ;
 import os ;
 import boost ; 
+import testing ;
 boost.use-project 1.53 ; 
 
 project shadingzen-tests
@@ -11,7 +12,7 @@ project shadingzen-tests
 
 if [ os.name ] = NT
 {
-	exe shadingzen-tests 
+	unit-test shadingzen-tests 
 		: [ glob-tree *.cpp ] ../src//shadingzen 
 		: <include>../include <include>../dependencies/boost
 		: <linkflags>/LIBPATH:"./dependencies/boost/stage/lib" 
@@ -20,7 +21,7 @@ if [ os.name ] = NT
 }
 else if [ os.name ] = LINUX
 {
-	exe shadingzen-tests 
+	unit-test shadingzen-tests 
 		: [ glob-tree *.cpp ] ../src//shadingzen $(ROT)/dependencies/boost/stage/lib/libboost_unit_test_framework.a
 		: <include>../include <include>../dependencies/boost
 		: <toolset>gcc <cxxflags>-std=c++11 <cxxflags>-msse4.1 <linkflags>-L./dependencies/boost/stage/lib/ <linkflags>-lboost_unit_test_framework <linkflags>-lboost_iostreams <linkflags>-lboost_system
@@ -29,7 +30,7 @@ else if [ os.name ] = LINUX
 } 
 else 
 {
-	exe shadingzen-tests 
+	unit-test shadingzen-tests 
 		: [ glob-tree *.cpp ] ../src//shadingzen $(ROT)/dependencies/boost/stage/lib/libboost_unit_test_framework.a
 		: <include>../include <include>../dependencies/boost
 		: <cxxflags>-std=c++11 <cxxflags>-stdlib=libc++ <cxxflags>-msse4.1 <linkflags>-L./dependencies/boost/stage/lib/ <linkflags>-lboost_unit_test_framework <linkflags>-lboost_iostreams <linkflags>-lboost_system <linkflags>-stdlib=libc++

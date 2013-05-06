@@ -9,6 +9,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShadingZenCpp", "Lib\ShadingZen.vcxproj", "{741BD7EF-AD25-40CF-8078-0DDD53F60703}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShadingZen_Tests", "Tests\ShadingZen_Tests.vcxproj", "{58E039C6-7E54-4236-99E7-6162300D495B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{741BD7EF-AD25-40CF-8078-0DDD53F60703} = {741BD7EF-AD25-40CF-8078-0DDD53F60703}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

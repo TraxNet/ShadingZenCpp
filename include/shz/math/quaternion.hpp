@@ -7,7 +7,7 @@
 
 namespace shz{ namespace math{
 
-	template <typename T> struct _ALIGNED(16) quaternion
+	template <typename T> struct quaternion
 	{
 		quaternion(){}
 		quaternion(shz::math::vector<T, 3> v, T angle){

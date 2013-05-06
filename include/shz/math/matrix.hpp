@@ -8,7 +8,7 @@
 
 namespace shz{ namespace math{
 		
-	template <typename T, int C, int R> struct _ALIGNED(16) matrix
+	template <typename T, int C, int R> struct matrix
 	{
 		static const size_t size = C*R;
 		static const size_t mindimension = ::boost::static_unsigned_min<C, R>::value;
@@ -106,7 +106,7 @@ namespace shz{ namespace math{
 		}
 		static inline bool is_identity(const matrix<T, C, R>& matrix) {
 			size_t next_one_position = 0;
-			for(size_t i=0; i<size; i++){
+			for(size_t i=0; i < matrix.size; i++){
 				if(i == next_one_position){
 					if(1.0 != (double)matrix.data[i])
 						return false;
