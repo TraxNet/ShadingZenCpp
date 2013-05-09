@@ -103,7 +103,7 @@ namespace shz{ namespace math{
 	/** This is a typedef for double, it ensures portability of the engine. */
 	typedef double				f64;
 
-	// MEMORY ALIGNEMENT MACROS (MAINLY FOR SSE)
+	// MEMORY ALIGNEMENT MACROS 
 	#if defined(_MSC_VER)
 		#define _ALIGNED(x) __declspec(align(x))
 		#define _ALIGNED_ALLOC(s, x) _aligned_malloc(s, x)
@@ -117,7 +117,7 @@ namespace shz{ namespace math{
 		#endif
 	#endif
 
-#define _ALIGNED_TYPE(t,x) typedef t _ALIGNED(x)
+	#define _ALIGNED_TYPE(t,x) typedef t _ALIGNED(x)
 } }
 
 #endif // __SHZ_TYPES__

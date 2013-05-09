@@ -10,9 +10,13 @@
 namespace shz{ namespace math{
 		template <typename T, int C> struct vector
 		{
-			static const size_t size = C;
-
 			typedef T underlaying_type;
+			typedef T* underlaying_type_pointer;
+			typedef const T* underlaying_type_const_pointer;
+			typedef T& underlaying_type_reference;
+			typedef const T& underlaying_type_const_reference;
+			
+			static const size_t size = C;
 
 			vector(){}
 			/*Vector(std::initializer_list<T> list){ 
@@ -42,6 +46,9 @@ namespace shz{ namespace math{
 			vector<T,C> operator / (const T value) const {  vector<T,C> t; vector<T,C>::div(&data[0], value, &t.data[0]); return t; }
 			vector<T,C>& operator /= (const vector<T,C>& other) { vector<T,C>::div(&data[0], &other.data[0], &data[0]); return *this; }
 			vector<T,C>& operator /= (const T value) { vector<T,C>::div(&data[0], value, &data[0]); return *this; }
+
+			underlaying_type_reference operator [] (size_t pos){ return data[pos]; }
+			underlaying_type_const_reference operator [] (size_t pos) const { return data[pos]; }
 
 			inline void copy(const vector<T,C>& other){
 				std::copy(other.data.cbegin(), other.data.cend(), data.begin());

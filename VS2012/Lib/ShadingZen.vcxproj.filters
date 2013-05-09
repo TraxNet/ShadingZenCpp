@@ -32,6 +32,12 @@
     <ClInclude Include="..\..\include\shz\math\quaternion.hpp">
       <Filter>include\math</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\shz\math\frustum.hpp">
+      <Filter>include\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\shz\math\plane.hpp">
+      <Filter>include\math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\math\matrix4f_sse.cpp">

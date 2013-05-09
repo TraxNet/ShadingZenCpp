@@ -10,6 +10,12 @@ namespace shz{ namespace math{
 		
 	template <typename T, int C, int R> struct matrix
 	{
+		typedef T underlaying_type;
+		typedef T* underlaying_type_pointer;
+		typedef const T* underlaying_type_const_pointer;
+		typedef T& underlaying_type_reference;
+		typedef const T& underlaying_type_const_reference;
+
 		static const size_t size = C*R;
 		static const size_t mindimension = ::boost::static_unsigned_min<C, R>::value;
 		static const size_t columns = C;
@@ -34,6 +40,8 @@ namespace shz{ namespace math{
 		matrix<T, C, R>& operator *= (const T value){ matrix<T, R, C> left(*this); matrix<T, C, R>::mul(&left.data[0], value, &this->data[0]); return *this; }
 		vector<T, C> operator * (const vector<T, C>& other){ vector<T, C> ret;  matrix<T, C, R>::mul_vec(&this->data[0], &other.data[0], &ret.data[0]); return ret; }
 
+		underlaying_type_reference operator [] (size_t pos){ return data[pos]; }
+		underlaying_type_const_reference operator [] (size_t pos) const { return data[pos]; }
 
 		static inline void add(const T* left, const T* right, T* target){
 			for(size_t i=0; i < C*R; ++i){

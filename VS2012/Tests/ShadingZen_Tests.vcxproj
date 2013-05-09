@@ -80,8 +80,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\tests\Math\frustum_tests.cpp" />
     <ClCompile Include="..\..\tests\Math\matrix4f_tests.cpp" />
     <ClCompile Include="..\..\tests\Math\matrix_tests.cpp" />
+    <ClCompile Include="..\..\tests\Math\plane_tests.cpp" />
     <ClCompile Include="..\..\tests\Math\quaternion_tests.cpp" />
     <ClCompile Include="..\..\tests\Math\vector3_tests.cpp" />
     <ClCompile Include="..\..\tests\Math\vector4_tests.cpp" />

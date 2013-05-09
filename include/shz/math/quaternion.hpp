@@ -9,6 +9,12 @@ namespace shz{ namespace math{
 
 	template <typename T> struct quaternion
 	{
+		typedef T underlaying_type;
+		typedef T* underlaying_type_pointer;
+		typedef const T* underlaying_type_const_pointer;
+		typedef T& underlaying_type_reference;
+		typedef const T& underlaying_type_const_reference;
+
 		quaternion(){}
 		quaternion(shz::math::vector<T, 3> v, T angle){
 			set_rotation(v.data[0], v.data[1], v.data[2], angle);
@@ -16,6 +22,9 @@ namespace shz{ namespace math{
 		quaternion(T x, T y, T z, T angle){
 			set_rotation(x, y, z, angle);
 		}
+
+		underlaying_type_reference operator [] (size_t pos){ return data[pos]; }
+		underlaying_type_const_reference operator [] (size_t pos) const { return data[pos]; }
 
 		void set_rotation(T x, T y, T z, T angle){
 			T half = angle*0.5;

@@ -32,5 +32,11 @@
     <ClCompile Include="..\..\tests\Math\quaternion_tests.cpp">
       <Filter>src\math</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\tests\Math\frustum_tests.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\tests\Math\plane_tests.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
