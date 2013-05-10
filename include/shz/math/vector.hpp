@@ -58,10 +58,13 @@ namespace shz{ namespace math{
 				return vector<T,C>::dot(&data[0], &other.data[0]);
 			}
 			inline T length() const { 
-				return dot(*this);
+				return vector<T,C>::length(&data[0]);
 			}
-			inline T sqrtlength() const {
-				return vector<T,C>::sqrtlength(&data[0]);
+			inline T inv_length() const { 
+				return 1.0/length();
+			}
+			inline T sqrlength() const {
+				return dot(*this);
 			}
 			vector<T,C> normalize() const {
 				vector<T,C> t;
@@ -120,11 +123,14 @@ namespace shz{ namespace math{
 				return value;
 
 			}
-			static inline T sqrtlength(const T* source){
+			static inline T length(const T* source){
 				return ::sqrt(vector<T,C>::dot(source, source));
 			}
+			static inline T inv_length(const T* source){
+				return 1.0/length(source);
+			}
 			static inline void normalize(const T* source, T* target){
-				T len = vector<T,C>::sqrtlength(source);
+				T len = vector<T,C>::length(source);
 				if(shz::math::equals(len, 0))
 					return;
 
@@ -176,10 +182,14 @@ namespace shz{ namespace math{
 				return vector<float,3>::dot(&data[0], &other.data[0]);
 			}
 			inline float length() const { 
-				return dot(*this);
+				return vector<float,3>::length(data.data());
 			}
-			inline float sqrtlength() const {
-				return vector<float,3>::sqrtlength(&data[0]);
+			inline float inv_length() const { 
+				return vector<float,3>::inv_length(data.data());
+			}
+			inline float sqrlength() const {
+				return dot(*this);
+				
 			}
 			vector<float,3> normalize() const {
 				vector<float,3> t;
@@ -199,10 +209,9 @@ namespace shz{ namespace math{
 			static void div(const float* left, const float* right, float* target);
 			static void div(const float* left, const float value, float* target);
 			static float dot(const float* left, const float* right);
-			static float sqrtlength(const float* source);
-			static void normalize(const float* source, float* target);
-
-			
+			static float length(const float* source);
+			static float inv_length(const float* source);
+			static void normalize(const float* source, float* target);	
 
 			union{
 				struct{ float x, y, z; };
@@ -250,10 +259,13 @@ namespace shz{ namespace math{
 				return vector<float,4>::dot(&data[0], &other.data[0]);
 			}
 			inline float length() const { 
-				return dot(*this);
+				return vector<float,4>::length(data.data());
 			}
-			inline float sqrtlength() const {
-				return vector<float,4>::sqrtlength(&data[0]);
+			inline float inv_length() const { 
+				return vector<float,4>::inv_length(data.data());
+			}
+			inline float sqrlength() const {
+				return dot(*this);
 			}
 			vector<float,4> normalize() const {
 				vector<float,4> t;
@@ -273,7 +285,8 @@ namespace shz{ namespace math{
 			static void div(const float* left, const float* right, float* target);
 			static void div(const float* left, const float value, float* target);
 			static float dot(const float* left, const float* right);
-			static float sqrtlength(const float* source);
+			static float length(const float* source);
+			static float inv_length(const float* source);
 			static void normalize(const float* source, float* target);
 			
 			union{

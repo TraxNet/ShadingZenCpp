@@ -22,10 +22,10 @@ namespace shz{ namespace math{
 		underlaying_type_const_reference operator [] (size_t pos) const { return eq[pos]; }
 
 		T length(){
-			return shz::math::vector<T, 3>::dot(eq.data(), eq.data());
+			return vector<T,3>::length(eq.data());
 		}
-		inline T sqrtlength() const {
-			return vector<T,3>::sqrtlength(eq.data());
+		inline T sqrlength() const {
+			return shz::math::vector<T, 3>::dot(eq.data(), eq.data());
 		}
 
 		bool is_point_behind(T x, T y, T z) {

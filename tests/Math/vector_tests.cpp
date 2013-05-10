@@ -83,8 +83,14 @@ BOOST_AUTO_TEST_CASE(vectorDot)
 BOOST_AUTO_TEST_CASE(vectorLength)
 {
 	auto v = shz::math::vector<shz::math::f64, 2>(1.4f);
-	BOOST_CHECK_CLOSE(v.sqrtlength(), 1.9798f, 0.01f);
-	BOOST_CHECK_CLOSE(v.length(), 3.92f, 0.00001f);
+	BOOST_CHECK_CLOSE(v.length(), 1.9798f, 0.01f);
+	BOOST_CHECK_CLOSE(v.sqrlength(), 3.92f, 0.00001f);
+}
+
+BOOST_AUTO_TEST_CASE(vectorInverseLength)
+{
+	auto v = shz::math::vector<shz::math::f64, 2>(1.4f);
+	BOOST_CHECK_CLOSE(v.inv_length(), 1.0/1.9798f, 0.01f);
 }
 
 BOOST_AUTO_TEST_CASE(vectorNormalize)

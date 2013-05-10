@@ -94,14 +94,27 @@ BOOST_AUTO_TEST_CASE(vector3fDot)
 BOOST_AUTO_TEST_CASE(vector3fLength)
 {
 	shz::math::vector<shz::math::f32, 3> v(1.4f);
-	BOOST_CHECK_CLOSE(v.sqrtlength(), 2.4249f, 0.01f);
-	BOOST_CHECK_CLOSE(v.length(), 5.88f, 0.00001f);
+	BOOST_CHECK_CLOSE(v.length(), 2.4249f, 0.01f);
+	BOOST_CHECK_CLOSE(v.sqrlength(), 5.88f, 0.00001f);
+}
+
+BOOST_AUTO_TEST_CASE(vector3fInverseLength)
+{
+	shz::math::vector<shz::math::f32, 3> v(1.4f);
+	BOOST_CHECK_CLOSE(v.inv_length(), 1.0/2.4249f, 0.01f);
+	v = shz::math::vector<shz::math::f32, 3>(0.f);
+	BOOST_CHECK_CLOSE(v.inv_length(), 0.f, 0.0f);
 }
 
 BOOST_AUTO_TEST_CASE(vector3fNormalize)
 {
 	shz::math::vector<shz::math::f32, 3> v(1.4f);
 	shz::math::vector<shz::math::f32, 3> w = v.normalize();
-	BOOST_CHECK_CLOSE(w.data[0], 0.577350269f,  0.0001f);
-	BOOST_CHECK_CLOSE(w.data[1], 0.577350269f,  0.0001f);
+	BOOST_CHECK_CLOSE(w.data[0], 0.577350269f,  0.01f);
+	BOOST_CHECK_CLOSE(w.data[1], 0.577350269f,  0.01f);
+
+	v = shz::math::vector<shz::math::f32, 3>(.0f);
+	w = v.normalize();
+	BOOST_CHECK_CLOSE(w.data[0], 0.f,  0.001f);
+	BOOST_CHECK_CLOSE(w.data[1], 0.f,  0.001f);
 }
