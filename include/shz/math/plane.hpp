@@ -25,7 +25,7 @@ namespace shz{ namespace math{
 			return shz::math::vector<T, 3>::dot(eq.data(), eq.data());
 		}
 		inline T sqrtlength() const {
-			return vector<T,C>::sqrtlength(eq.data());
+			return vector<T,3>::sqrtlength(eq.data());
 		}
 
 		bool is_point_behind(T x, T y, T z) {

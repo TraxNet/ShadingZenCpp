@@ -111,9 +111,18 @@ namespace shz{ namespace math{
 
 			return true;
 		}*/
+                
+                enum plane_names{
+			REAR = 0,
+			FRONT,
+			RIGHT,
+			LEFT,
+			TOP,
+			BOTTOM
+		};
 
 		void generate_planes_from_projection(const matrix<T, 4, 4> clip){
-			shz::math::plane<T>& plane = planes[plane_names.RIGHT];
+			shz::math::plane<T>& plane = planes[plane_names::RIGHT];
 			plane.eq[0] = clip[3] - clip[0];
 			plane.eq[1] = clip[7] - clip[4];
 			plane.eq[2] = clip[11] - clip[8];
@@ -125,7 +134,7 @@ namespace shz{ namespace math{
 			plane.eq[2] /= t;
 			plane.eq[3] /= t;
 
-			plane = planes[plane_names.LEFT];
+			plane = planes[plane_names::LEFT];
 			plane.eq[0] = clip[3] + clip[0];
 			plane.eq[1] = clip[7] + clip[4];
 			plane.eq[2] = clip[11] + clip[8];
@@ -137,7 +146,7 @@ namespace shz{ namespace math{
 			plane.eq[2] /= t;
 			plane.eq[3] /= t;
 
-			plane = planes[plane_names.BOTTOM];
+			plane = planes[plane_names::BOTTOM];
 			plane.eq[0] = clip[3] + clip[1];
 			plane.eq[1] = clip[7] + clip[5];
 			plane.eq[2] = clip[11] + clip[9];
@@ -149,7 +158,7 @@ namespace shz{ namespace math{
 			plane.eq[2] /= t;
 			plane.eq[3] /= t;
 
-			plane = getPlane(Planes.TOP);
+			plane = planes[plane_names::TOP];
 			plane.eq[0] = clip[3] - clip[1];
 			plane.eq[1] = clip[7] - clip[5];
 			plane.eq[2] = clip[11] - clip[9];
@@ -161,7 +170,7 @@ namespace shz{ namespace math{
 			plane.eq[2] /= t;
 			plane.eq[3] /= t;
 
-			plane = planes[plane_names.FRONT];
+			plane = planes[plane_names::FRONT];
 			plane.eq[0] = clip[3] - clip[2];
 			plane.eq[1] = clip[7] - clip[6];
 			plane.eq[2] = clip[11] - clip[10];
@@ -173,7 +182,7 @@ namespace shz{ namespace math{
 			plane.eq[2] /= t;
 			plane.eq[3] /= t;
 
-			plane = planes[plane_names.REAR];
+			plane = planes[plane_names::REAR];
 			plane.eq[0] = clip[3] + clip[2];
 			plane.eq[1] = clip[7] + clip[6];
 			plane.eq[2] = clip[11] + clip[10];
@@ -187,14 +196,7 @@ namespace shz{ namespace math{
 
 		}
 
-		enum plane_names{
-			REAR = 0,
-			FRONT,
-			RIGHT,
-			LEFT,
-			TOP,
-			BOTTOM
-		};
+		
 
 		std::array<shz::math::plane<T>, num_planes> planes;
 	};
