@@ -26,6 +26,7 @@ namespace shz{ namespace math{
 				for(size_t i=0; i<size; i++)
 					data[i] = value;
 			}
+			vector(f32 x, f32 y, f32 z, f32 w){ data[0] = x; data[1] = y; data[2] = z; data[3] = w; }
 
 			vector<T,C> operator + (const vector<T,C>& other) const {  vector<T,C> t; vector<T,C>::add(&data[0], &other.data[0], &t.data[0]); return t; }
 			vector<T,C> operator + (const T value) const {  vector<T,C> t; vector<T,C>::add(&data[0], value, &t.data[0]); return t; }
@@ -143,6 +144,7 @@ namespace shz{ namespace math{
 				for(size_t i=0; i<size; i++)
 					data[i] = value;
 			}
+			vector(f32 x, f32 y, f32 z){ data[0] = x; data[1] = y; data[2] = z; }
 
 			vector<float,3> operator + (const vector<float,3>& other) const {  vector<float,3> t; vector<float,3>::add(&data[0], &other.data[0], &t.data[0]); return t; }
 			vector<float,3> operator + (const float value) const {  vector<float,3> t; vector<float,3>::add(&data[0], value, &t.data[0]); return t; }

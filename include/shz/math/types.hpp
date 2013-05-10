@@ -63,7 +63,6 @@ namespace shz{ namespace math{
 	#endif
 
 
-	#ifdef __IRR_HAS_S64
 	//! 64 bit unsigned variable.
 	/** This is a typedef for 64bit uint, it ensures portability of the engine. */
 	#if defined(_MSC_VER) || ((__BORLANDC__ >= 0x530) && !defined(__STRICT_ANSI__))
@@ -91,7 +90,6 @@ namespace shz{ namespace math{
 	#else
 	typedef long long				s64;
 	#endif
-	#endif	// __IRR_HAS_S64
 
 
 

@@ -239,6 +239,13 @@ BOOST_AUTO_TEST_CASE(matrix4fMuls)
 
 }
 
+BOOST_AUTO_TEST_CASE(matrixRotation)
+{
+	shz::math::vector3f axis(0.f, 1.f, 0.f);
+	auto rot = shz::math::matrix4f::from_rotation(axis, shz::math::HALF_PI);
+
+}
+
 /*
 BOOST_AUTO_TEST_CASE(matrixPerformance)
 {

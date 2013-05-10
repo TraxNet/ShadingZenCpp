@@ -67,6 +67,20 @@ namespace shz{ namespace math{
 			target += MathType::size;
 		}
 	}
+
+	/** Static (compiler time) helper templates */
+
+	template <u64 Value1, u64 Value2>
+	struct static_unsigned_min
+	{
+		static const u64 value = (Value1 > Value2) ? Value2 : Value1;			
+	};
+
+	template <u64 Value1, u64 Value2>
+	struct static_unsigned_max
+	{
+		static const u64 value = (Value1 < Value2) ? Value2 : Value1;
+	};
 } }
 
 #endif // __SHZ_MATH__
