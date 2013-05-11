@@ -94,5 +94,20 @@ BOOST_AUTO_TEST_CASE(quaternionMuls)
 
 BOOST_AUTO_TEST_CASE(quaternionSlerp)
 {
+	shz::math::quaternion<shz::math::f64> q1(0.0, 1.0, 0.0, 0.0);
+	shz::math::quaternion<shz::math::f64> q2(0.0, 1.0, 0.0, shz::math::HALF_PI/2);
+	shz::math::quaternion<shz::math::f64> q3(0.0, 1.0, 0.0, shz::math::HALF_PI);
 
+	auto half = shz::math::quaternion<shz::math::f64>::slerp(q1, q3, 0.5);
+
+	BOOST_CHECK_CLOSE(half.x, q2.x, ROUND_ERROR);
+	BOOST_CHECK_CLOSE(half.y, q2.y, ROUND_ERROR);
+	BOOST_CHECK_CLOSE(half.z, q2.z, ROUND_ERROR);
+	BOOST_CHECK_CLOSE(half.w, q2.w, ROUND_ERROR);
+
+	half = shz::math::quaternion<shz::math::f64>::slerp(q1, q1, 0.5);
+	BOOST_CHECK_CLOSE(half.x, q1.x, ROUND_ERROR);
+	BOOST_CHECK_CLOSE(half.y, q1.y, ROUND_ERROR);
+	BOOST_CHECK_CLOSE(half.z, q1.z, ROUND_ERROR);
+	BOOST_CHECK_CLOSE(half.w, q1.w, ROUND_ERROR);
 }

@@ -24,7 +24,7 @@ namespace shz{ namespace math{
 		matrix(){}
 		matrix(const T* data){ std::copy(data, data+size, this->data.begin()); }		
 
-		matrix<T, C, R> operator + (const matrix<T, C, R>& other){ matrix<T, C, R> t; matrix<T, C, R>::add(&this->data[0], &other.data[0], &t.data[0]); return t; }
+		matrix<T, C, R> operator + (const matrix<T, C, R>& other) const { matrix<T, C, R> t; matrix<T, C, R>::add(&this->data[0], &other.data[0], &t.data[0]); return t; }
 		matrix<T, C, R> operator + (const T value){ matrix<T, C, R> t; matrix<T, C, R>::add(&t.data[0], value, &t.data[0]); return t; }
 		matrix<T, C, R>& operator += (const matrix<T, C, R>& other){ matrix<T, C, R>::add(&this->data[0], &other.data[0], &this->data[0]); return *this; }
 		matrix<T, C, R>& operator += (const T value){ matrix<T, C, R>::add(&this->data[0], value, &this->data[0]); return *this; }
@@ -34,11 +34,11 @@ namespace shz{ namespace math{
 		matrix<T, C, R>& operator -= (const matrix<T, C, R>& other){ matrix<T, C, R>::sub(&this->data[0], &other.data[0], &this->data[0]); return *this; }
 		matrix<T, C, R>& operator -= (const T value){ matrix<T, C, R>::sub(&this->data[0], value, &this->data[0]); return *this; }
 
-		matrix<T, mindimension, mindimension> operator * (const matrix<T, R, C>& other){ matrix<T, mindimension, mindimension> ret; mul(&this->data[0], &other.data[0], &ret.data[0]); return ret; }
-		matrix<T, mindimension, mindimension> operator * (const T value){ matrix<T, R, C> t; matrix<T, C, R>::mul(&this->data[0], value, &t.data[0]); return t; }
+		matrix<T, mindimension, mindimension> operator * (const matrix<T, R, C>& other) const { matrix<T, mindimension, mindimension> ret; mul(&this->data[0], &other.data[0], &ret.data[0]); return ret; }
+		matrix<T, mindimension, mindimension> operator * (const T value) const { matrix<T, R, C> t; matrix<T, C, R>::mul(&this->data[0], value, &t.data[0]); return t; }
 		matrix<T, C, R>& operator *= (const matrix<T, C, R>& other){ matrix<T, R, C> left(*this); matrix<T, C, R>::mul(&left.data[0], other.data[0], &this->data[0]); return *this; }
 		matrix<T, C, R>& operator *= (const T value){ matrix<T, R, C> left(*this); matrix<T, C, R>::mul(&left.data[0], value, &this->data[0]); return *this; }
-		vector<T, C> operator * (const vector<T, C>& other){ vector<T, C> ret;  matrix<T, C, R>::mul_vec(&this->data[0], &other.data[0], &ret.data[0]); return ret; }
+		vector<T, C> operator * (const vector<T, C>& other) const { vector<T, C> ret;  matrix<T, C, R>::mul_vec(&this->data[0], &other.data[0], &ret.data[0]); return ret; }
 
 		underlaying_type_reference operator [] (size_t pos){ return data[pos]; }
 		underlaying_type_const_reference operator [] (size_t pos) const { return data[pos]; }
@@ -161,21 +161,21 @@ namespace shz{ namespace math{
 		matrix(){}
 		matrix(const shz::math::f32* data){ std::copy(data, data+size, this->data.begin()); }		
 
-		matrix<shz::math::f32, 4, 4> operator + (const matrix<shz::math::f32, 4, 4>& other){ matrix<shz::math::f32, 4, 4> t; matrix<shz::math::f32, 4, 4>::add(&this->data[0], &other.data[0], &t.data[0]); return t; }
-		matrix<shz::math::f32, 4, 4> operator + (const shz::math::f32 value){ matrix<shz::math::f32, 4, 4> t; matrix<shz::math::f32, 4, 4>::add(&t.data[0], value, &t.data[0]); return t; }
+		matrix<shz::math::f32, 4, 4> operator + (const matrix<shz::math::f32, 4, 4>& other) const { matrix<shz::math::f32, 4, 4> t; matrix<shz::math::f32, 4, 4>::add(&this->data[0], &other.data[0], &t.data[0]); return t; }
+		matrix<shz::math::f32, 4, 4> operator + (const shz::math::f32 value) const { matrix<shz::math::f32, 4, 4> t; matrix<shz::math::f32, 4, 4>::add(&t.data[0], value, &t.data[0]); return t; }
 		matrix<shz::math::f32, 4, 4>& operator += (const matrix<shz::math::f32, 4, 4>& other){ matrix<shz::math::f32, 4, 4>::add(&this->data[0], &other.data[0], &this->data[0]); return *this; }
 		matrix<shz::math::f32, 4, 4>& operator += (const shz::math::f32 value){ matrix<shz::math::f32, 4, 4>::add(&this->data[0], value, &this->data[0]); return *this; }
 
-		matrix<shz::math::f32, 4, 4> operator - (const matrix<shz::math::f32, 4, 4>& other){ matrix<shz::math::f32, 4, 4> t; matrix<shz::math::f32, 4, 4>::sub(&this->data[0], &other.data[0], &t.data[0]); return t; }
-		matrix<shz::math::f32, 4, 4> operator - (const shz::math::f32 value){ matrix<shz::math::f32, 4, 4> t; matrix<shz::math::f32, 4, 4>::sub(&this->data[0], value, &t.data[0]); return t; }
+		matrix<shz::math::f32, 4, 4> operator - (const matrix<shz::math::f32, 4, 4>& other) const { matrix<shz::math::f32, 4, 4> t; matrix<shz::math::f32, 4, 4>::sub(&this->data[0], &other.data[0], &t.data[0]); return t; }
+		matrix<shz::math::f32, 4, 4> operator - (const shz::math::f32 value) const { matrix<shz::math::f32, 4, 4> t; matrix<shz::math::f32, 4, 4>::sub(&this->data[0], value, &t.data[0]); return t; }
 		matrix<shz::math::f32, 4, 4>& operator -= (const matrix<shz::math::f32, 4, 4>& other){ matrix<shz::math::f32, 4, 4>::sub(&this->data[0], &other.data[0], &this->data[0]); return *this; }
 		matrix<shz::math::f32, 4, 4>& operator -= (const shz::math::f32 value){ matrix<shz::math::f32, 4, 4>::sub(&this->data[0], value, &this->data[0]); return *this; }
 
-		matrix<shz::math::f32, mindimension, mindimension> operator * (const matrix<shz::math::f32, 4, 4>& other){ matrix<shz::math::f32, mindimension, mindimension> ret; mul(&this->data[0], &other.data[0], &ret.data[0]); return ret; }
-		matrix<shz::math::f32, mindimension, mindimension> operator * (const shz::math::f32 value){ matrix<shz::math::f32, 4, 4> t; matrix<shz::math::f32, 4, 4>::mul(&this->data[0], value, &t.data[0]); return t; }
+		matrix<shz::math::f32, mindimension, mindimension> operator * (const matrix<shz::math::f32, 4, 4>& other) const { matrix<shz::math::f32, mindimension, mindimension> ret; mul(&this->data[0], &other.data[0], &ret.data[0]); return ret; }
+		matrix<shz::math::f32, mindimension, mindimension> operator * (const shz::math::f32 value) const { matrix<shz::math::f32, 4, 4> t; matrix<shz::math::f32, 4, 4>::mul(&this->data[0], value, &t.data[0]); return t; }
 		matrix<shz::math::f32, 4, 4>& operator *= (const matrix<shz::math::f32, 4, 4>& other){ matrix<shz::math::f32, 4, 4> left(*this); matrix<shz::math::f32, 4, 4>::mul(&left.data[0], other.data[0], &this->data[0]); return *this; }
 		matrix<shz::math::f32, 4, 4>& operator *= (const shz::math::f32 value){ matrix<shz::math::f32, 4, 4> left(*this); matrix<shz::math::f32, 4, 4>::mul(&left.data[0], value, &this->data[0]); return *this; }
-		vector<shz::math::f32, 4> operator * (const vector<shz::math::f32, 4>& other){ vector<shz::math::f32, 4> ret;  matrix<shz::math::f32, 4, 4>::mul_vec(&this->data[0], &other.data[0], &ret.data[0]); return ret; }
+		vector<shz::math::f32, 4> operator * (const vector<shz::math::f32, 4>& other) const { vector<shz::math::f32, 4> ret;  matrix<shz::math::f32, 4, 4>::mul_vec(&this->data[0], &other.data[0], &ret.data[0]); return ret; }
 
 		f32& operator [] (size_t pos){ return data[pos]; }
 		const f32& operator [] (size_t pos) const { return data[pos]; }
