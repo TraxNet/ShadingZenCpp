@@ -57,8 +57,9 @@ namespace shz{ namespace math{
 				va_start (arguments, num);  
 
 				for (int x = 0; x < num && x < size; ++x)
-					data[x] = va_arg(x, T);
+					data[x] = va_arg(arguments, T);
 
+				va_end(arguments);
 			}
 			inline void copy(const vector<T,C>& other){
 				std::copy(other.data.cbegin(), other.data.cend(), data.begin());
