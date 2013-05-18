@@ -46,7 +46,7 @@ namespace shz{ namespace math{
 		union {
 			struct { T a, b, c, d; };
 			std::array<T, 4> eq;
-			struct{ shz::math::vector<T, 3> normal; T d; };	
+			struct{ shz::math::vector<T, 3> normal; T dp; };	
 		};
 	};
 
