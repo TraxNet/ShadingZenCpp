@@ -85,11 +85,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\shz\math\bbox.hpp" />
     <ClInclude Include="..\..\include\shz\math\frustum.hpp" />
+    <ClInclude Include="..\..\include\shz\math\computation.hpp" />
+    <ClInclude Include="..\..\include\shz\math\intersection.hpp" />
     <ClInclude Include="..\..\include\shz\math\math.hpp" />
     <ClInclude Include="..\..\include\shz\math\matrix.hpp" />
     <ClInclude Include="..\..\include\shz\math\plane.hpp" />
     <ClInclude Include="..\..\include\shz\math\quaternion.hpp" />
+    <ClInclude Include="..\..\include\shz\math\ray.hpp" />
+    <ClInclude Include="..\..\include\shz\math\sphere.hpp" />
     <ClInclude Include="..\..\include\shz\math\types.hpp" />
     <ClInclude Include="..\..\include\shz\math\vector.hpp" />
   </ItemGroup>

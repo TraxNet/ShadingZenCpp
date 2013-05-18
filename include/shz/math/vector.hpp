@@ -5,6 +5,7 @@
 #include <array>
 #include <memory>
 #include <shz/math/math.hpp>
+#include <cstdarg>
 
 
 namespace shz{ namespace math{
@@ -51,6 +52,14 @@ namespace shz{ namespace math{
 			underlaying_type_reference operator [] (size_t pos){ return data[pos]; }
 			underlaying_type_const_reference operator [] (size_t pos) const { return data[pos]; }
 
+			inline void set(int num, ...){
+				va_list arguments;    
+				va_start (arguments, num);  
+
+				for (int x = 0; x < num && x < size; ++x)
+					data[x] = va_arg(x, T);
+
+			}
 			inline void copy(const vector<T,C>& other){
 				std::copy(other.data.cbegin(), other.data.cend(), data.begin());
 			}

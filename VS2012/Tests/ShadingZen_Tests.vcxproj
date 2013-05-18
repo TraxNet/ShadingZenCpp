@@ -59,6 +59,12 @@
       <AdditionalLibraryDirectories>../../dependencies/boost/stage/lib;../../libs/</AdditionalLibraryDirectories>
       <AdditionalDependencies>libboost_test_exec_monitor-vc110-mt-gd-1_53.lib;shadingzen_native_debug.lib</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>$(TargetPath) </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Unit Testing</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -81,6 +87,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\tests\Math\frustum_tests.cpp" />
+    <ClCompile Include="..\..\tests\Math\intersection.cpp" />
     <ClCompile Include="..\..\tests\Math\matrix4f_tests.cpp" />
     <ClCompile Include="..\..\tests\Math\matrix_tests.cpp" />
     <ClCompile Include="..\..\tests\Math\plane_tests.cpp" />

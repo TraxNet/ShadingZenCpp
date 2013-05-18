@@ -112,7 +112,7 @@ namespace shz{ namespace math{
 			return true;
 		}*/
                 
-                enum plane_names{
+        enum plane_names{
 			REAR = 0,
 			FRONT,
 			RIGHT,

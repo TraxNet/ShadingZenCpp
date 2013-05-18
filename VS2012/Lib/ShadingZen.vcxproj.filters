@@ -38,6 +38,21 @@
     <ClInclude Include="..\..\include\shz\math\plane.hpp">
       <Filter>include\math</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\shz\math\bbox.hpp">
+      <Filter>include\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\shz\math\sphere.hpp">
+      <Filter>include\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\shz\math\ray.hpp">
+      <Filter>include\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\shz\math\computation.hpp">
+      <Filter>include\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\shz\math\intersection.hpp">
+      <Filter>include\math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\math\matrix4f_sse.cpp">

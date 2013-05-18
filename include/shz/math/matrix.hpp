@@ -3,6 +3,7 @@
 
 #include <array>
 #include <stdexcept> 
+#include <array>
 #include <shz/math/math.hpp>
 #include <shz/math/vector.hpp>
 

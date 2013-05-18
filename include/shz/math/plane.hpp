@@ -18,6 +18,7 @@ namespace shz{ namespace math{
 		plane(T a, T b, T c, T d){ eq[0] = a; eq[1] = b; eq[2] = c; eq[3] = d; }
 		plane(vector<T, 3> n, T d){ eq[0] = n.data[0]; eq[1] = n.data[1]; eq[2] = n.data[2]; eq[3] = d; }
 
+
 		underlaying_type_reference operator [] (size_t pos){ return eq[pos]; }
 		underlaying_type_const_reference operator [] (size_t pos) const { return eq[pos]; }
 
@@ -45,8 +46,8 @@ namespace shz{ namespace math{
 		union {
 			struct { T a, b, c, d; };
 			std::array<T, 4> eq;
+			struct{ shz::math::vector<T, 3> normal; T d; };	
 		};
-		
 	};
 
 } }
