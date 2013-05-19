@@ -2,9 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{68A3A348-BB44-4767-B9B7-77F931F8F13B}"
-	ProjectSection(SolutionItems) = preProject
-		..\Readme.me = ..\Readme.me
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ShadingZenCpp", "Lib\ShadingZen.vcxproj", "{741BD7EF-AD25-40CF-8078-0DDD53F60703}"
 EndProject

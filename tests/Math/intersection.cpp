@@ -17,7 +17,7 @@ BOOST_AUTO_TEST_CASE(ray_planeIntersection)
 	plane<double> test_plane(0, 1, 0, 0);
 
 	shz::math::intersector<ray<double>, plane<double>> check;
-	check(test_ray, test_plane);
+	BOOST_CHECK(!check(test_ray, test_plane));
 	BOOST_CHECK(check.state == IntersectState::OUTSIDE);
 
 	test_ray.origin.data[0] = 0;
@@ -26,7 +26,7 @@ BOOST_AUTO_TEST_CASE(ray_planeIntersection)
 	test_ray.direction.data[0] = 0;
 	test_ray.direction.data[1] = 0;
 	test_ray.direction.data[2] = 1;
-	check(test_ray, test_plane);
+	BOOST_CHECK(check(test_ray, test_plane));
 	BOOST_CHECK(check.state == IntersectState::INSIDE); // Parallel, degenerated solution
 
 	test_ray.origin.data[0] = 0;
@@ -35,7 +35,7 @@ BOOST_AUTO_TEST_CASE(ray_planeIntersection)
 	test_ray.direction.data[0] = 0;
 	test_ray.direction.data[1] = -1;
 	test_ray.direction.data[2] = 0;
-	check(test_ray, test_plane);
+	BOOST_CHECK(check(test_ray, test_plane));
 	BOOST_CHECK(check.state == IntersectState::PARTIAL_INSIDE);
 	BOOST_CHECK_CLOSE(check.length, 1.0, 0.00001);
 }
@@ -53,7 +53,7 @@ BOOST_AUTO_TEST_CASE(ray_bboxIntersection)
 	bbox<double> test_bbox(-1, -1, -1, 1, 1, 1);
 
 	shz::math::intersector<ray<double>, bbox<double>> check;
-	check(test_ray, test_bbox);
+	BOOST_CHECK(!check(test_ray, test_bbox));
 	BOOST_CHECK(check.state == IntersectState::OUTSIDE);
 
 	o.data[0] = 0;
@@ -61,7 +61,7 @@ BOOST_AUTO_TEST_CASE(ray_bboxIntersection)
 	o.data[2] = 0;
 	test_ray.origin = o;
 	test_ray.direction = d;
-	check(test_ray, test_bbox);
+	BOOST_CHECK(check(test_ray, test_bbox));
 	BOOST_CHECK(check.state == IntersectState::PARTIAL_INSIDE);
 	BOOST_CHECK_CLOSE(check.length, 1, 0.0001);
 
@@ -69,7 +69,7 @@ BOOST_AUTO_TEST_CASE(ray_bboxIntersection)
 	o.data[1] = 0;
 	o.data[2] = 0;
 	test_ray.origin = o;
-	check(test_ray, test_bbox);
+	BOOST_CHECK(check(test_ray, test_bbox));
 	BOOST_CHECK(check.state == IntersectState::INSIDE);
 }
 
@@ -77,12 +77,32 @@ BOOST_AUTO_TEST_CASE(ray_sphereIntersection)
 {
 	ray<double> test_ray;
 	sphere<double> test_sphere;
-	test_ray.origin.set(0, 0, 0);
-	test_ray.direction.set(0, 1, 0);
+	test_ray.origin.data[0] = 0;
+	test_ray.origin.data[1] = 0;
+	test_ray.origin.data[2] = 0;
+	test_ray.direction.data[0] = 0;
+	test_ray.direction.data[1] = 1;
+	test_ray.direction.data[2] = 0;
 	test_ray.length = 10;
-	test_sphere.center.set(0, 0, 0);
+	test_sphere.center.data[0] = 0;
+	test_sphere.center.data[1] = 0;
+	test_sphere.center.data[2] = 0;
 	test_sphere.radius = 1;
 
 	shz::math::intersector<ray<double>, sphere<double>> check;
-	check(test_ray, test_sphere);
+	BOOST_CHECK(check(test_ray, test_sphere));
+	BOOST_CHECK(check.state == IntersectState::INSIDE);
+
+	test_sphere.center.data[0] = 0;
+	test_sphere.center.data[1] = 5;
+	test_sphere.center.data[2] = 0;
+	test_sphere.radius = 1;
+	BOOST_CHECK(check(test_ray, test_sphere));
+
+	shz::math::intersector<ray<double>, sphere<double>, shz::math::partial_resolve_intersector> partial_check;
+	test_sphere.center.data[0] = 0;
+	test_sphere.center.data[1] = 5;
+	test_sphere.center.data[2] = 0;
+	test_sphere.radius = 1;
+	BOOST_CHECK(partial_check(test_ray, test_sphere));
 }
