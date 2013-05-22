@@ -35,7 +35,7 @@ namespace shz{ namespace math{
 
 	/** template functor */
 	template<typename T1, typename T2, typename RESOLVE=full_resolve_intersector> struct intersector {
-		bool operator()(T1 operand1, T2 operand2){ static_assert(false, "Intersector not defined. Try a full_full_resolve intersector"); }
+		bool operator()(T1 operand1, T2 operand2){ }
 		bool intersect;
 		T1 operand1;
 		T2 operand2;
@@ -105,7 +105,7 @@ namespace shz{ namespace math{
 		}	
 		bool check(const shz::math::ray<U>& operand1, const shz::math::bbox<U>& operand2){
 			U MaxT[] = {-1, -1, -1};
-			shz::math::bbox<U>::bounds_type Mins(operand2.mins), Maxs(operand2.maxs);
+			typename shz::math::bbox<U>::bounds_type Mins(operand2.mins), Maxs(operand2.maxs);
 			const U* origin = operand1.origin.data.data();
 			const U* dir = operand1.direction.data.data();
 			int i = 0;

@@ -348,6 +348,8 @@ namespace shz{ namespace math{
 				m[12] = 0.0f;
 				m[13] = 0.0f;
 				m[15] = 0.0f;
+            
+            return m;
 		}
 
 		 /**
@@ -398,6 +400,8 @@ namespace shz{ namespace math{
 			m[ 8] = 0.0f;
 			m[ 9] = 0.0f;
 			m[ 11] = 0.0f;
+            
+            return m;
 		}
 
 		union{
