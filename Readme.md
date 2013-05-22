@@ -14,7 +14,7 @@ After that, some raytracing queries (for example for occlusion discarding) will 
 As of May 2013, the source compiles against Boost 1.53 on (ShadingZenCpp requires a semi-compliant C++11 compiler):
 - Linux GCC 4.7.20121109 (probably works with 4.6)
 - MacOSX Clang 3.2 (using libc++)
-- MSVC 2012
+- MSVC 2012 (Requires Microsoft Visual C++ Compiler Nov 2012 CTP update).
 
 Supported SIMD instruction sets: 
 - SSE3: No

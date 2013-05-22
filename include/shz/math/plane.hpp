@@ -16,7 +16,7 @@ namespace shz{ namespace math{
 
 		plane(){}
 		plane(T a, T b, T c, T d){ eq[0] = a; eq[1] = b; eq[2] = c; eq[3] = d; }
-		plane(vector<T, 3> n, T d){ eq[0] = n.data[0]; eq[1] = n.data[1]; eq[2] = n.data[2]; eq[3] = d; }
+		plane(vector<T, 3>& n, T d){ eq[0] = n.data[0]; eq[1] = n.data[1]; eq[2] = n.data[2]; eq[3] = d; }
 
 
 		underlaying_type_reference operator [] (size_t pos){ return eq[pos]; }

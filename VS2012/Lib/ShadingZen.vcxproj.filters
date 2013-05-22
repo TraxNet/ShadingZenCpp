@@ -15,6 +15,9 @@
     <Filter Include="src\math">
       <UniqueIdentifier>{bcbab1ac-4001-4d56-9488-3c22b1045b2b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\spatial">
+      <UniqueIdentifier>{5a35f9ba-470f-4cf1-8e3a-6f32a826594d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\shz\math\math.hpp">
@@ -52,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="..\..\include\shz\math\intersection.hpp">
       <Filter>include\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\shz\spatial\kd_tree.hpp">
+      <Filter>include\spatial</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

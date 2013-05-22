@@ -105,8 +105,7 @@ namespace shz{ namespace math{
 		}	
 		bool check(const shz::math::ray<U>& operand1, const shz::math::bbox<U>& operand2){
 			U MaxT[] = {-1, -1, -1};
-			std::array<U, 3> Mins(operand2.mins.data);
-			std::array<U, 3> Maxs(operand2.maxs.data);
+			shz::math::bbox<U>::bounds_type Mins(operand2.mins), Maxs(operand2.maxs);
 			const U* origin = operand1.origin.data.data();
 			const U* dir = operand1.direction.data.data();
 			int i = 0;

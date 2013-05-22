@@ -153,6 +153,11 @@ namespace shz{ namespace math{
 
 		template <>  struct _ALIGNED(16) vector<float, 3>
 		{
+			typedef float underlaying_type;
+			typedef float* underlaying_type_pointer;
+			typedef const float* underlaying_type_const_pointer;
+			typedef float& underlaying_type_reference;
+			typedef const float& underlaying_type_const_reference;
 			static const size_t size = 3;
 
 			vector(){}
@@ -181,6 +186,9 @@ namespace shz{ namespace math{
 			vector<float,3> operator / (const float value) const {  vector<float,3> t; vector<float,3>::div(&data[0], value, &t.data[0]); return t; }
 			vector<float,3>& operator /= (const vector<float,3>& other) { vector<float,3>::div(&data[0], &other.data[0], &data[0]); return *this; }
 			vector<float,3>& operator /= (const float value) { vector<float,3>::div(&data[0], value, &data[0]); return *this; }
+
+			underlaying_type_reference operator [] (size_t pos){ return data[pos]; }
+			underlaying_type_const_reference operator [] (size_t pos) const { return data[pos]; }
 
 			inline void* operator new[](size_t x) { return _ALIGNED_ALLOC(x, 16); }
 			inline void operator delete[](void* x) { if (x) _ALIGNED_DEALLOC(x); }
@@ -231,6 +239,11 @@ namespace shz{ namespace math{
 
 		template <>  struct _ALIGNED(16) vector<float, 4>
 		{
+			typedef float underlaying_type;
+			typedef float* underlaying_type_pointer;
+			typedef const float* underlaying_type_const_pointer;
+			typedef float& underlaying_type_reference;
+			typedef const float& underlaying_type_const_reference;
 			static const size_t size = 4;
 
 			vector(){}
@@ -258,6 +271,9 @@ namespace shz{ namespace math{
 			vector<float,4> operator / (const float value) const {  vector<float,4> t; vector<float,4>::div(&data[0], value, &t.data[0]); return t; }
 			vector<float,4>& operator /= (const vector<float,4>& other) { vector<float,4>::div(&data[0], &other.data[0], &data[0]); return *this; }
 			vector<float,4>& operator /= (const float value) { vector<float,4>::div(&data[0], value, &data[0]); return *this; }
+
+			underlaying_type_reference operator [] (size_t pos){ return data[pos]; }
+			underlaying_type_const_reference operator [] (size_t pos) const { return data[pos]; }
 
 			inline void* operator new[](size_t x) { return _ALIGNED_ALLOC(x, 16); }
 			inline void operator delete[](void* x) { if (x) _ALIGNED_DEALLOC(x); }

@@ -97,6 +97,7 @@
     <ClInclude Include="..\..\include\shz\math\sphere.hpp" />
     <ClInclude Include="..\..\include\shz\math\types.hpp" />
     <ClInclude Include="..\..\include\shz\math\vector.hpp" />
+    <ClInclude Include="..\..\include\shz\spatial\kd_tree.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\math\matrix4f_sse.cpp" />
