@@ -25,6 +25,9 @@ namespace shz{ namespace math{
 		T length(){
 			return vector<T,3>::length(eq.data());
 		}
+        T inv_length(){
+			return vector<T,3>::inv_length(eq.data());
+		}
 		inline T sqrlength() const {
 			return shz::math::vector<T, 3>::dot(eq.data(), eq.data());
 		}

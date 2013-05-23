@@ -104,16 +104,19 @@ namespace shz{ namespace math{
 			return check(operand1, operand2);
 		}	
 		bool check(const shz::math::ray<U>& operand1, const shz::math::bbox<U>& operand2){
-			U MaxT[] = {-1, -1, -1};
+            std::array<U,shz::math::bbox<U>::num_dimensions> MaxT;
 			typename shz::math::bbox<U>::bounds_type Mins(operand2.mins), Maxs(operand2.maxs);
 			const U* origin = operand1.origin.data.data();
 			const U* dir = operand1.direction.data.data();
 			int i = 0;
 			bool inside = true;
 			state = IntersectState::OUTSIDE;
+            
+            for( i=0; i < shz::math::bbox<U>::num_dimensions; i++ )
+                MaxT[i] = -1;
 
 			// Find candidate planes.
-			for( i=0; i<3; i++ ) {
+			for( i=0; i < shz::math::bbox<U>::num_dimensions; i++ ) {
 				Mins[i] -= operand1.radius;
 				Maxs[i] += operand1.radius;
 
@@ -138,14 +141,14 @@ namespace shz{ namespace math{
 
 			// Get largest of the maxT's for final choice of intersection
 			int WhichPlane = 0;
-			if( MaxT[1] > MaxT[WhichPlane])	WhichPlane = 1;
-			if( MaxT[2] > MaxT[WhichPlane])	WhichPlane = 2;
+            for( i=1; i < shz::math::bbox<U>::num_dimensions; i++ )
+                if( MaxT[i] > MaxT[WhichPlane])	WhichPlane = 1;
 
 			// Check final candidate actually inside box
 			//if( IR(MaxT[WhichPlane])&SIGN_BITMASK ) return false;
 			if( MaxT[WhichPlane] < 0) return false;
 
-			for( i=0; i<3; i++ ) {
+			for( i=0; i < shz::math::bbox<U>::num_dimensions; i++ ) {
 				if( i!=WhichPlane ) {
 					point[i] = origin[i] + MaxT[WhichPlane] * dir[i];
 					if( point[i]<Mins[i] || point[i]>Maxs[i] )	return false;
@@ -160,10 +163,11 @@ namespace shz{ namespace math{
 
 
 		IntersectState state;
-		shz::math::vector<U, 3> point;
+		shz::math::vector<U, shz::math::bbox<U>::num_dimensions> point;
 		U length;
 	};
 
+    
 	template<typename U> struct intersector <shz::math::ray<U>, shz::math::bbox<U>, partial_resolve_intersector> {
 
 		bool operator()(const shz::math::ray<U>& operand1, const shz::math::bbox<U>& operand2){
@@ -173,49 +177,51 @@ namespace shz{ namespace math{
 			return check(operand1, operand2);
 		}	
 		bool check(const shz::math::ray<U>& operand1, const shz::math::bbox<U>& operand2){
-			U MaxT[] = {-1, -1, -1};
-			std::array<U, 3> Mins(operand2.mins.data);
-			std::array<U, 3> Maxs(operand2.maxs.data);
+            std::array<U,shz::math::bbox<U>::num_dimensions> MaxT;
+			typename shz::math::bbox<U>::bounds_type Mins(operand2.mins), Maxs(operand2.maxs);
 			const U* origin = operand1.origin.data.data();
 			const U* dir = operand1.direction.data.data();
 			int i = 0;
 			bool inside = true;
 			state = IntersectState::OUTSIDE;
-
+            
+            for( i=0; i < shz::math::bbox<U>::num_dimensions; i++ )
+                MaxT[i] = -1;
+            
 			// Find candidate planes.
-			for( i=0; i<3; i++ ) {
+			for( i=0; i < shz::math::bbox<U>::num_dimensions; i++ ) {
 				Mins[i] -= operand1.radius;
 				Maxs[i] += operand1.radius;
-
+                
 				if( origin[i] < Mins[i] ) {
 					point[i] = Mins[i];
 					inside = false;
-
+                    
 					// Calculate T distances to candidate planes
 					MaxT[i] = (Mins[i] - origin[i]) / dir[i];
 				}
 				else if( origin[i] > Maxs[i] ) {
 					point[i] = Maxs[i];
 					inside = false;
-
+                    
 					// Calculate T distances to candidate planes
 					MaxT[i] = (Maxs[i] - origin[i]) / dir[i];
 				}
 			}
-
+            
 			// Ray origin inside bounding box
 			if( inside ){ state = IntersectState::INSIDE; return true; }
-
+            
 			// Get largest of the maxT's for final choice of intersection
 			int WhichPlane = 0;
-			if( MaxT[1] > MaxT[WhichPlane])	WhichPlane = 1;
-			if( MaxT[2] > MaxT[WhichPlane])	WhichPlane = 2;
-
+            for( i=1; i < shz::math::bbox<U>::num_dimensions; i++ )
+                if( MaxT[i] > MaxT[WhichPlane])	WhichPlane = 1;
+            
 			// Check final candidate actually inside box
 			//if( IR(MaxT[WhichPlane])&SIGN_BITMASK ) return false;
 			if( MaxT[WhichPlane] < 0) return false;
-
-			for( i=0; i<3; i++ ) {
+            
+			for( i=0; i < shz::math::bbox<U>::num_dimensions; i++ ) {
 				if( i!=WhichPlane ) {
 					point[i] = origin[i] + MaxT[WhichPlane] * dir[i];
 					if( point[i]<Mins[i] || point[i]>Maxs[i] )	return false;
@@ -228,7 +234,7 @@ namespace shz{ namespace math{
 
 
 		IntersectState state;
-		shz::math::vector<U, 3> point;
+		shz::math::vector<U, shz::math::bbox<U>::num_dimensions> point;
 		U length;
 	};
 
@@ -249,10 +255,10 @@ namespace shz{ namespace math{
 		}	
 		bool check(const shz::math::ray<U>& operand1, const shz::math::sphere<U>& operand2){
 			shz::math::vector<U, 3> oc = operand1.origin - operand2.center;
-			shz::math::vector<U, 3> co = operand2.center -  operand1.origin;
+			//shz::math::vector<U, 3> co = operand2.center -  operand1.origin;
 			U A = 1;
 			U B = 2*oc.dot(operand1.direction);
-			U diam = operand2.radius*2;
+			//U diam = operand2.radius*2;
 			U C = oc.dot(oc)-operand2.radius*operand2.radius;
 			U disc = B*B - 4*A*C;
 
@@ -318,10 +324,10 @@ namespace shz{ namespace math{
 		}	
 		bool check(const shz::math::ray<U>& operand1, const shz::math::sphere<U>& operand2){
 			shz::math::vector<U, 3> oc = operand1.origin - operand2.center;
-			shz::math::vector<U, 3> co = operand2.center -  operand1.origin;
+			//shz::math::vector<U, 3> co = operand2.center -  operand1.origin;
 			U A = 1;
 			U B = 2*oc.dot(operand1.direction);
-			U diam = operand2.radius*2;
+			//U diam = operand2.radius*2;
 			U C = oc.dot(oc)-operand2.radius*operand2.radius;
 			U disc = B*B - 4*A*C;
 

@@ -7,7 +7,6 @@ BOOST_AUTO_TEST_CASE(matrixConstructors)
 	
 	auto m = shz::math::matrix<shz::math::f64, 2, 2>::identity();
 	auto n = shz::math::matrix<shz::math::f64, 2, 2>::identity();
-	auto nn = shz::math::matrix<shz::math::f64, 2, 2>(n);
 	
 	BOOST_CHECK(true == m.is_identity());
 	BOOST_CHECK(true == n.is_identity());

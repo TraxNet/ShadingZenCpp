@@ -122,77 +122,77 @@ namespace shz{ namespace math{
 		};
 
 		void generate_planes_from_projection(const matrix<T, 4, 4> clip){
-			shz::math::plane<T>& plane = planes[plane_names::RIGHT];
-			plane.eq[0] = clip[3] - clip[0];
-			plane.eq[1] = clip[7] - clip[4];
-			plane.eq[2] = clip[11] - clip[8];
-			plane.eq[3] = clip[15] - clip[12];
+			shz::math::plane<T>* plane = &planes[plane_names::RIGHT];
+			plane->eq[0] = clip[3] - clip[0];
+			plane->eq[1] = clip[7] - clip[4];
+			plane->eq[2] = clip[11] - clip[8];
+			plane->eq[3] = clip[15] - clip[12];
 
-			T t = plane.sqrtlength();
-			plane.eq[0] /= t;
-			plane.eq[1] /= t;
-			plane.eq[2] /= t;
-			plane.eq[3] /= t;
+			T t = plane->inv_length();
+			plane->eq[0] *= t;
+			plane->eq[1] *= t;
+			plane->eq[2] *= t;
+			plane->eq[3] *= t;
 
-			plane = planes[plane_names::LEFT];
-			plane.eq[0] = clip[3] + clip[0];
-			plane.eq[1] = clip[7] + clip[4];
-			plane.eq[2] = clip[11] + clip[8];
-			plane.eq[3] = clip[15] + clip[12];
+			plane = &planes[plane_names::LEFT];
+			plane->eq[0] = clip[3] + clip[0];
+			plane->eq[1] = clip[7] + clip[4];
+			plane->eq[2] = clip[11] + clip[8];
+			plane->eq[3] = clip[15] + clip[12];
 
-			t = plane.sqrtlength();
-			plane.eq[0] /= t;
-			plane.eq[1] /= t;
-			plane.eq[2] /= t;
-			plane.eq[3] /= t;
+			t = plane->inv_length();
+			plane->eq[0] *= t;
+			plane->eq[1] *= t;
+			plane->eq[2] *= t;
+			plane->eq[3] *= t;
 
-			plane = planes[plane_names::BOTTOM];
-			plane.eq[0] = clip[3] + clip[1];
-			plane.eq[1] = clip[7] + clip[5];
-			plane.eq[2] = clip[11] + clip[9];
-			plane.eq[3] = clip[15] + clip[13];
+			plane = &planes[plane_names::BOTTOM];
+			plane->eq[0] = clip[3] + clip[1];
+			plane->eq[1] = clip[7] + clip[5];
+			plane->eq[2] = clip[11] + clip[9];
+			plane->eq[3] = clip[15] + clip[13];
 
-			t = (T) plane.sqrtlength();
-			plane.eq[0] /= t;
-			plane.eq[1] /= t;
-			plane.eq[2] /= t;
-			plane.eq[3] /= t;
+			t = plane->inv_length();
+			plane->eq[0] *= t;
+			plane->eq[1] *= t;
+			plane->eq[2] *= t;
+			plane->eq[3] *= t;
 
-			plane = planes[plane_names::TOP];
-			plane.eq[0] = clip[3] - clip[1];
-			plane.eq[1] = clip[7] - clip[5];
-			plane.eq[2] = clip[11] - clip[9];
-			plane.eq[3] = clip[15] - clip[13];
+			plane = &planes[plane_names::TOP];
+			plane->eq[0] = clip[3] - clip[1];
+			plane->eq[1] = clip[7] - clip[5];
+			plane->eq[2] = clip[11] - clip[9];
+			plane->eq[3] = clip[15] - clip[13];
 
-			t = plane.sqrtlength();
-			plane.eq[0] /= t;
-			plane.eq[1] /= t;
-			plane.eq[2] /= t;
-			plane.eq[3] /= t;
+			t = plane->inv_length();
+			plane->eq[0] *= t;
+			plane->eq[1] *= t;
+			plane->eq[2] *= t;
+			plane->eq[3] *= t;
 
-			plane = planes[plane_names::FRONT];
-			plane.eq[0] = clip[3] - clip[2];
-			plane.eq[1] = clip[7] - clip[6];
-			plane.eq[2] = clip[11] - clip[10];
-			plane.eq[3] = clip[15] - clip[14];
+			plane = &planes[plane_names::FRONT];
+			plane->eq[0] = clip[3] - clip[2];
+			plane->eq[1] = clip[7] - clip[6];
+			plane->eq[2] = clip[11] - clip[10];
+			plane->eq[3] = clip[15] - clip[14];
 
-			t = plane.sqrtlength();
-			plane.eq[0] /= t;
-			plane.eq[1] /= t;
-			plane.eq[2] /= t;
-			plane.eq[3] /= t;
+			t = plane->inv_length();
+			plane->eq[0] *= t;
+			plane->eq[1] *= t;
+			plane->eq[2] *= t;
+			plane->eq[3] *= t;
 
-			plane = planes[plane_names::REAR];
-			plane.eq[0] = clip[3] + clip[2];
-			plane.eq[1] = clip[7] + clip[6];
-			plane.eq[2] = clip[11] + clip[10];
-			plane.eq[3] = clip[15] + clip[14];
+			plane = &planes[plane_names::REAR];
+			plane->eq[0] = clip[3] + clip[2];
+			plane->eq[1] = clip[7] + clip[6];
+			plane->eq[2] = clip[11] + clip[10];
+			plane->eq[3] = clip[15] + clip[14];
 
-			t = plane.sqrtlength();
-			plane.eq[0] /= t;
-			plane.eq[1] /= t;
-			plane.eq[2] /= t;
-			plane.eq[3] /= t;
+			t = plane->inv_length();
+			plane->eq[0] *= t;
+			plane->eq[1] *= t;
+			plane->eq[2] *= t;
+			plane->eq[3] *= t;
 
 		}
 
