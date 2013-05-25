@@ -12,6 +12,9 @@
     <Filter Include="src\math">
       <UniqueIdentifier>{c4b05e4c-3ce3-4499-88e0-2f2b33bec652}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\spatial">
+      <UniqueIdentifier>{d11a15f2-d5b0-41b6-9eb5-a0351a951fa9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\tests\Math\matrix_tests.cpp">
@@ -39,6 +42,12 @@
       <Filter>src\math</Filter>
     </ClCompile>
     <ClCompile Include="..\..\tests\Math\intersection.cpp">
+      <Filter>src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\tests\spatial\kd_tree_tests.cpp">
+      <Filter>src\spatial</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\tests\Math\bbox_tests.cpp">
       <Filter>src\math</Filter>
     </ClCompile>
   </ItemGroup>

@@ -121,7 +121,7 @@ namespace shz{ namespace math{
 			BOTTOM
 		};
 
-		void generate_planes_from_projection(const matrix<T, 4, 4> clip){
+		void generate_planes_from_projection(const matrix<T, 4, 4>& clip){
 			shz::math::plane<T>* plane = &planes[plane_names::RIGHT];
 			plane->eq[0] = clip[3] - clip[0];
 			plane->eq[1] = clip[7] - clip[4];

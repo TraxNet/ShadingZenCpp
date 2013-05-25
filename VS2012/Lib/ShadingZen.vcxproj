@@ -98,6 +98,7 @@
     <ClInclude Include="..\..\include\shz\math\types.hpp" />
     <ClInclude Include="..\..\include\shz\math\vector.hpp" />
     <ClInclude Include="..\..\include\shz\spatial\kd_tree.hpp" />
+    <ClInclude Include="..\..\include\shz\spatial\kd_tree_discriminators.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\math\matrix4f_sse.cpp" />

@@ -24,6 +24,7 @@ namespace shz{ namespace math{
 		}
         
         bounds_type& operator [] (size_t index){ return bounds[index]; }
+		const bounds_type& operator [] (size_t index) const { return bounds[index]; }
  
 		union 
 		{

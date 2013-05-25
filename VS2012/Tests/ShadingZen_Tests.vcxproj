@@ -86,6 +86,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\tests\Math\bbox_tests.cpp" />
     <ClCompile Include="..\..\tests\Math\frustum_tests.cpp" />
     <ClCompile Include="..\..\tests\Math\intersection.cpp" />
     <ClCompile Include="..\..\tests\Math\matrix4f_tests.cpp" />
@@ -95,6 +96,7 @@
     <ClCompile Include="..\..\tests\Math\vector3_tests.cpp" />
     <ClCompile Include="..\..\tests\Math\vector4_tests.cpp" />
     <ClCompile Include="..\..\tests\Math\vector_tests.cpp" />
+    <ClCompile Include="..\..\tests\spatial\kd_tree_tests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

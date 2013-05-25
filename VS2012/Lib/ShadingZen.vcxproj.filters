@@ -59,6 +59,9 @@
     <ClInclude Include="..\..\include\shz\spatial\kd_tree.hpp">
       <Filter>include\spatial</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\shz\spatial\kd_tree_discriminators.hpp">
+      <Filter>include\spatial</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\math\matrix4f_sse.cpp">
