@@ -4,6 +4,7 @@
 //#include <initializer_list>
 #include <array>
 #include <memory>
+#include <iostream>
 #include <shz/math/math.hpp>
 #include <cstdarg>
 
@@ -51,6 +52,19 @@ namespace shz{ namespace math{
 
 			underlaying_type_reference operator [] (size_t pos){ return data[pos]; }
 			underlaying_type_const_reference operator [] (size_t pos) const { return data[pos]; }
+            
+            friend std::ostream& operator << (std::ostream& os, const vector<T,C>& vec){
+                os << "[";
+                for(size_t i=0; i < size; ++i){
+                    os << vec.data[i];
+                    if(i==size-1)
+                        os << "]";
+                    else
+                        os << ",";
+                }
+                
+                return os;
+            }
 
 			inline void set(int num, ...){
 				va_list arguments;    
@@ -189,6 +203,19 @@ namespace shz{ namespace math{
 
 			underlaying_type_reference operator [] (size_t pos){ return data[pos]; }
 			underlaying_type_const_reference operator [] (size_t pos) const { return data[pos]; }
+            
+            friend std::ostream& operator << (std::ostream& os, const vector<float,3>& vec){
+                os << "[";
+                for(size_t i=0; i < size; ++i){
+                    os << vec.data[i];
+                    if(i==size-1)
+                        os << "]";
+                    else
+                        os << ",";
+                }
+                
+                return os;
+            }
 
 			inline void* operator new[](size_t x) { return _ALIGNED_ALLOC(x, 16); }
 			inline void operator delete[](void* x) { if (x) _ALIGNED_DEALLOC(x); }
@@ -251,6 +278,7 @@ namespace shz{ namespace math{
 				for(size_t i=0; i<size; i++)
 					data[i] = value;
 			}
+            vector(f32 x, f32 y, f32 z, f32 w){ data[0] = x; data[1] = y; data[2] = z; data[3] = w; }
 
 			vector<float,4> operator + (const vector<float,4>& other) const {  vector<float,4> t; vector<float,4>::add(&data[0], &other.data[0], &t.data[0]); return t; }
 			vector<float,4> operator + (const float value) const {  vector<float,4> t; vector<float,4>::add(&data[0], value, &t.data[0]); return t; }
@@ -274,6 +302,19 @@ namespace shz{ namespace math{
 
 			underlaying_type_reference operator [] (size_t pos){ return data[pos]; }
 			underlaying_type_const_reference operator [] (size_t pos) const { return data[pos]; }
+            
+            friend std::ostream& operator << (std::ostream& os, const vector<float,4>& vec){
+                os << "[";
+                for(size_t i=0; i < size; ++i){
+                    os << vec.data[i];
+                    if(i==size-1)
+                        os << "]";
+                    else
+                        os << ",";
+                }
+                
+                return os;
+            }
 
 			inline void* operator new[](size_t x) { return _ALIGNED_ALLOC(x, 16); }
 			inline void operator delete[](void* x) { if (x) _ALIGNED_DEALLOC(x); }
