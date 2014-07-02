@@ -41,6 +41,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -84,6 +85,12 @@
       <AdditionalLibraryDirectories>../../dependencies/boost/stage/lib;../../libs/</AdditionalLibraryDirectories>
       <AdditionalDependencies>libboost_test_exec_monitor-vc110-mt-1_53.lib;shadingzen_native_release.lib</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>$(TargetPath) </Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Unit Testing</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\tests\Math\bbox_tests.cpp" />
