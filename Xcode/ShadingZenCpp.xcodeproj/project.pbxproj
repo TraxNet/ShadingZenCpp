@@ -1,0 +1,384 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5539E6C01750C51700416D56 /* kd_tree_discriminators.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 5539E6BF1750C51700416D56 /* kd_tree_discriminators.hpp */; };
+		55798BFE1965A03D0029533D /* kd_tree_exceptions.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 55798BFD1965A03D0029533D /* kd_tree_exceptions.hpp */; };
+		558DC5BB174CE8B0007BA274 /* bbox.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 558DC5AF174CE8B0007BA274 /* bbox.hpp */; };
+		558DC5BC174CE8B0007BA274 /* computation.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 558DC5B0174CE8B0007BA274 /* computation.hpp */; };
+		558DC5BD174CE8B0007BA274 /* frustum.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 558DC5B1174CE8B0007BA274 /* frustum.hpp */; };
+		558DC5BE174CE8B0007BA274 /* intersection.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 558DC5B2174CE8B0007BA274 /* intersection.hpp */; };
+		558DC5BF174CE8B0007BA274 /* math.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 558DC5B3174CE8B0007BA274 /* math.hpp */; };
+		558DC5C0174CE8B0007BA274 /* matrix.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 558DC5B4174CE8B0007BA274 /* matrix.hpp */; };
+		558DC5C1174CE8B0007BA274 /* plane.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 558DC5B5174CE8B0007BA274 /* plane.hpp */; };
+		558DC5C2174CE8B0007BA274 /* quaternion.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 558DC5B6174CE8B0007BA274 /* quaternion.hpp */; };
+		558DC5C3174CE8B0007BA274 /* ray.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 558DC5B7174CE8B0007BA274 /* ray.hpp */; };
+		558DC5C4174CE8B0007BA274 /* sphere.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 558DC5B8174CE8B0007BA274 /* sphere.hpp */; };
+		558DC5C5174CE8B0007BA274 /* types.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 558DC5B9174CE8B0007BA274 /* types.hpp */; };
+		558DC5C6174CE8B0007BA274 /* vector.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 558DC5BA174CE8B0007BA274 /* vector.hpp */; };
+		558DC5CB174CE8C4007BA274 /* matrix4f_sse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 558DC5C8174CE8C4007BA274 /* matrix4f_sse.cpp */; };
+		558DC5CC174CE8C4007BA274 /* vector3f_sse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 558DC5C9174CE8C4007BA274 /* vector3f_sse.cpp */; };
+		558DC5CD174CE8C4007BA274 /* vector4f_sse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 558DC5CA174CE8C4007BA274 /* vector4f_sse.cpp */; };
+		55AB9B10174D5D8F0067D7B7 /* kd_tree.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 55AB9B0F174D5D8F0067D7B7 /* kd_tree.hpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		558DC5E7174CFF40007BA274 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 558DC5E3174CFF3E007BA274 /* ShadingZenCppTests.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 558DC5D7174CFF3E007BA274;
+			remoteInfo = ShadingZenCppTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5539E6BF1750C51700416D56 /* kd_tree_discriminators.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = kd_tree_discriminators.hpp; sourceTree = "<group>"; };
+		55798BFD1965A03D0029533D /* kd_tree_exceptions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = kd_tree_exceptions.hpp; sourceTree = "<group>"; };
+		558DC59D174B9774007BA274 /* libShadingZenCpp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libShadingZenCpp.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		558DC5AF174CE8B0007BA274 /* bbox.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = bbox.hpp; sourceTree = "<group>"; };
+		558DC5B0174CE8B0007BA274 /* computation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = computation.hpp; sourceTree = "<group>"; };
+		558DC5B1174CE8B0007BA274 /* frustum.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = frustum.hpp; sourceTree = "<group>"; };
+		558DC5B2174CE8B0007BA274 /* intersection.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = intersection.hpp; sourceTree = "<group>"; };
+		558DC5B3174CE8B0007BA274 /* math.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = math.hpp; sourceTree = "<group>"; };
+		558DC5B4174CE8B0007BA274 /* matrix.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = matrix.hpp; sourceTree = "<group>"; };
+		558DC5B5174CE8B0007BA274 /* plane.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = plane.hpp; sourceTree = "<group>"; };
+		558DC5B6174CE8B0007BA274 /* quaternion.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = quaternion.hpp; sourceTree = "<group>"; };
+		558DC5B7174CE8B0007BA274 /* ray.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ray.hpp; sourceTree = "<group>"; };
+		558DC5B8174CE8B0007BA274 /* sphere.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = sphere.hpp; sourceTree = "<group>"; };
+		558DC5B9174CE8B0007BA274 /* types.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = types.hpp; sourceTree = "<group>"; };
+		558DC5BA174CE8B0007BA274 /* vector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = vector.hpp; sourceTree = "<group>"; };
+		558DC5C8174CE8C4007BA274 /* matrix4f_sse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = matrix4f_sse.cpp; sourceTree = "<group>"; };
+		558DC5C9174CE8C4007BA274 /* vector3f_sse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vector3f_sse.cpp; sourceTree = "<group>"; };
+		558DC5CA174CE8C4007BA274 /* vector4f_sse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vector4f_sse.cpp; sourceTree = "<group>"; };
+		558DC5E3174CFF3E007BA274 /* ShadingZenCppTests.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ShadingZenCppTests.xcodeproj; path = ShadingZenCppTests/ShadingZenCppTests.xcodeproj; sourceTree = "<group>"; };
+		55AB9B0F174D5D8F0067D7B7 /* kd_tree.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = kd_tree.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		558DC59A174B9773007BA274 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		558DC594174B9773007BA274 = {
+			isa = PBXGroup;
+			children = (
+				558DC5E3174CFF3E007BA274 /* ShadingZenCppTests.xcodeproj */,
+				558DC5A5174CCE21007BA274 /* Sources */,
+				558DC5A4174CCE18007BA274 /* Headers */,
+				558DC59E174B9774007BA274 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		558DC59E174B9774007BA274 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				558DC59D174B9774007BA274 /* libShadingZenCpp.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		558DC5A4174CCE18007BA274 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				558DC5AC174CE8B0007BA274 /* include */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		558DC5A5174CCE21007BA274 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				558DC5C7174CE8C4007BA274 /* math */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		558DC5AC174CE8B0007BA274 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				558DC5AD174CE8B0007BA274 /* shz */,
+			);
+			name = include;
+			path = ../include;
+			sourceTree = "<group>";
+		};
+		558DC5AD174CE8B0007BA274 /* shz */ = {
+			isa = PBXGroup;
+			children = (
+				55AB9B0E174D5D8F0067D7B7 /* spatial */,
+				558DC5AE174CE8B0007BA274 /* math */,
+			);
+			path = shz;
+			sourceTree = "<group>";
+		};
+		558DC5AE174CE8B0007BA274 /* math */ = {
+			isa = PBXGroup;
+			children = (
+				558DC5AF174CE8B0007BA274 /* bbox.hpp */,
+				558DC5B0174CE8B0007BA274 /* computation.hpp */,
+				558DC5B1174CE8B0007BA274 /* frustum.hpp */,
+				558DC5B2174CE8B0007BA274 /* intersection.hpp */,
+				558DC5B3174CE8B0007BA274 /* math.hpp */,
+				558DC5B4174CE8B0007BA274 /* matrix.hpp */,
+				558DC5B5174CE8B0007BA274 /* plane.hpp */,
+				558DC5B6174CE8B0007BA274 /* quaternion.hpp */,
+				558DC5B7174CE8B0007BA274 /* ray.hpp */,
+				558DC5B8174CE8B0007BA274 /* sphere.hpp */,
+				558DC5B9174CE8B0007BA274 /* types.hpp */,
+				558DC5BA174CE8B0007BA274 /* vector.hpp */,
+			);
+			path = math;
+			sourceTree = "<group>";
+		};
+		558DC5C7174CE8C4007BA274 /* math */ = {
+			isa = PBXGroup;
+			children = (
+				558DC5C8174CE8C4007BA274 /* matrix4f_sse.cpp */,
+				558DC5C9174CE8C4007BA274 /* vector3f_sse.cpp */,
+				558DC5CA174CE8C4007BA274 /* vector4f_sse.cpp */,
+			);
+			name = math;
+			path = ../src/math;
+			sourceTree = "<group>";
+		};
+		558DC5E4174CFF3E007BA274 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				558DC5E8174CFF40007BA274 /* ShadingZenCppTests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		55AB9B0E174D5D8F0067D7B7 /* spatial */ = {
+			isa = PBXGroup;
+			children = (
+				55798BFD1965A03D0029533D /* kd_tree_exceptions.hpp */,
+				5539E6BF1750C51700416D56 /* kd_tree_discriminators.hpp */,
+				55AB9B0F174D5D8F0067D7B7 /* kd_tree.hpp */,
+			);
+			path = spatial;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		558DC59B174B9773007BA274 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				558DC5BB174CE8B0007BA274 /* bbox.hpp in Headers */,
+				558DC5BC174CE8B0007BA274 /* computation.hpp in Headers */,
+				558DC5BD174CE8B0007BA274 /* frustum.hpp in Headers */,
+				558DC5BE174CE8B0007BA274 /* intersection.hpp in Headers */,
+				558DC5BF174CE8B0007BA274 /* math.hpp in Headers */,
+				558DC5C0174CE8B0007BA274 /* matrix.hpp in Headers */,
+				558DC5C1174CE8B0007BA274 /* plane.hpp in Headers */,
+				558DC5C2174CE8B0007BA274 /* quaternion.hpp in Headers */,
+				558DC5C3174CE8B0007BA274 /* ray.hpp in Headers */,
+				55798BFE1965A03D0029533D /* kd_tree_exceptions.hpp in Headers */,
+				558DC5C4174CE8B0007BA274 /* sphere.hpp in Headers */,
+				558DC5C5174CE8B0007BA274 /* types.hpp in Headers */,
+				558DC5C6174CE8B0007BA274 /* vector.hpp in Headers */,
+				55AB9B10174D5D8F0067D7B7 /* kd_tree.hpp in Headers */,
+				5539E6C01750C51700416D56 /* kd_tree_discriminators.hpp in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		558DC59C174B9773007BA274 /* ShadingZenCpp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 558DC5A1174B9774007BA274 /* Build configuration list for PBXNativeTarget "ShadingZenCpp" */;
+			buildPhases = (
+				558DC599174B9773007BA274 /* Sources */,
+				558DC59A174B9773007BA274 /* Frameworks */,
+				558DC59B174B9773007BA274 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShadingZenCpp;
+			productName = ShadingZenCpp;
+			productReference = 558DC59D174B9774007BA274 /* libShadingZenCpp.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		558DC595174B9773007BA274 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Óscar Blasco Maestro";
+			};
+			buildConfigurationList = 558DC598174B9773007BA274 /* Build configuration list for PBXProject "ShadingZenCpp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 558DC594174B9773007BA274;
+			productRefGroup = 558DC59E174B9774007BA274 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 558DC5E4174CFF3E007BA274 /* Products */;
+					ProjectRef = 558DC5E3174CFF3E007BA274 /* ShadingZenCppTests.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				558DC59C174B9773007BA274 /* ShadingZenCpp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		558DC5E8174CFF40007BA274 /* ShadingZenCppTests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = ShadingZenCppTests;
+			remoteRef = 558DC5E7174CFF40007BA274 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		558DC599174B9773007BA274 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				558DC5CB174CE8C4007BA274 /* matrix4f_sse.cpp in Sources */,
+				558DC5CC174CE8C4007BA274 /* vector3f_sse.cpp in Sources */,
+				558DC5CD174CE8C4007BA274 /* vector4f_sse.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		558DC59F174B9774007BA274 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		558DC5A0174B9774007BA274 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		558DC5A2174B9774007BA274 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = ../include;
+				"OTHER_CPLUSPLUSFLAGS[arch=*]" = (
+					"$(OTHER_CFLAGS)",
+					"-msse4.1",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		558DC5A3174B9774007BA274 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				EXECUTABLE_PREFIX = lib;
+				HEADER_SEARCH_PATHS = ../include;
+				"OTHER_CPLUSPLUSFLAGS[arch=*]" = (
+					"$(OTHER_CFLAGS)",
+					"-msse4.1",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		558DC598174B9773007BA274 /* Build configuration list for PBXProject "ShadingZenCpp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				558DC59F174B9774007BA274 /* Debug */,
+				558DC5A0174B9774007BA274 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		558DC5A1174B9774007BA274 /* Build configuration list for PBXNativeTarget "ShadingZenCpp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				558DC5A2174B9774007BA274 /* Debug */,
+				558DC5A3174B9774007BA274 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 558DC595174B9773007BA274 /* Project object */;
+}

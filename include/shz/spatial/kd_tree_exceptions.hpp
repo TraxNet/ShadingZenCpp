@@ -6,8 +6,14 @@
 namespace shz{ namespace spatial{
 	class kdtree_max_nodes_overflow_exception : public std::exception
 	{
+    private:
+        std::string reason;
 	public:
-		kdtree_max_nodes_overflow_exception(const char *what) : std::exception(what){}
+		kdtree_max_nodes_overflow_exception(const char *what) : reason(what){}
+        
+        virtual const char* what() const noexcept { return reason.c_str(); }
+        
+        
 	};
 } }
 

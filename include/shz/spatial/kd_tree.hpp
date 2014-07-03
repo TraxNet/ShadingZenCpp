@@ -93,7 +93,7 @@ namespace shz{ namespace spatial{
 
 		typename KDTreeTraits::discriminator_type axis;
 
-		inline bool is_leaf(){ return left_child & LEASIZF_FLAG; };
+		inline bool is_leaf(){ return left_child & LEAF_FLAG; };
 		size_type left_child;
 
 		bool is_empty(){ return this->left_child&SIZE_FLAG == 0; }

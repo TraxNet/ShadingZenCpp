@@ -1,0 +1,313 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		558DC5DD174CFF3E007BA274 /* ShadingZenCppTests.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 558DC5DC174CFF3E007BA274 /* ShadingZenCppTests.1 */; };
+		558DC5F3174D0859007BA274 /* frustum_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 558DC5EA174D0859007BA274 /* frustum_tests.cpp */; };
+		558DC5F4174D0859007BA274 /* intersection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 558DC5EB174D0859007BA274 /* intersection.cpp */; };
+		558DC5F5174D0859007BA274 /* matrix4f_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 558DC5EC174D0859007BA274 /* matrix4f_tests.cpp */; };
+		558DC5F6174D0859007BA274 /* matrix_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 558DC5ED174D0859007BA274 /* matrix_tests.cpp */; };
+		558DC5F7174D0859007BA274 /* plane_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 558DC5EE174D0859007BA274 /* plane_tests.cpp */; };
+		558DC5F8174D0859007BA274 /* quaternion_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 558DC5EF174D0859007BA274 /* quaternion_tests.cpp */; };
+		558DC5F9174D0859007BA274 /* vector3_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 558DC5F0174D0859007BA274 /* vector3_tests.cpp */; };
+		558DC5FA174D0859007BA274 /* vector4_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 558DC5F1174D0859007BA274 /* vector4_tests.cpp */; };
+		558DC5FB174D0859007BA274 /* vector_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 558DC5F2174D0859007BA274 /* vector_tests.cpp */; };
+		558DC5FD174D088A007BA274 /* libShadingZenCpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 558DC5FC174D088A007BA274 /* libShadingZenCpp.a */; };
+		558DC601174D1A83007BA274 /* libboost_iostreams.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 558DC5FE174D1A83007BA274 /* libboost_iostreams.a */; };
+		558DC602174D1A84007BA274 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 558DC5FF174D1A83007BA274 /* libboost_system.a */; };
+		558DC603174D1A84007BA274 /* libboost_unit_test_framework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 558DC600174D1A83007BA274 /* libboost_unit_test_framework.a */; };
+		55AB9B14174D60B20067D7B7 /* bbox_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55AB9B12174D60B20067D7B7 /* bbox_tests.cpp */; };
+		55AB9B16174DDE7B0067D7B7 /* kd_tree_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55AB9B15174DDE7B0067D7B7 /* kd_tree_tests.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		558DC5D5174CFF3E007BA274 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				558DC5DD174CFF3E007BA274 /* ShadingZenCppTests.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		558DC5D7174CFF3E007BA274 /* ShadingZenCppTests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ShadingZenCppTests; sourceTree = BUILT_PRODUCTS_DIR; };
+		558DC5DC174CFF3E007BA274 /* ShadingZenCppTests.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ShadingZenCppTests.1; sourceTree = "<group>"; };
+		558DC5EA174D0859007BA274 /* frustum_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = frustum_tests.cpp; sourceTree = "<group>"; };
+		558DC5EB174D0859007BA274 /* intersection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = intersection.cpp; sourceTree = "<group>"; };
+		558DC5EC174D0859007BA274 /* matrix4f_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = matrix4f_tests.cpp; sourceTree = "<group>"; };
+		558DC5ED174D0859007BA274 /* matrix_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = matrix_tests.cpp; sourceTree = "<group>"; };
+		558DC5EE174D0859007BA274 /* plane_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = plane_tests.cpp; sourceTree = "<group>"; };
+		558DC5EF174D0859007BA274 /* quaternion_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = quaternion_tests.cpp; sourceTree = "<group>"; };
+		558DC5F0174D0859007BA274 /* vector3_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vector3_tests.cpp; sourceTree = "<group>"; };
+		558DC5F1174D0859007BA274 /* vector4_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vector4_tests.cpp; sourceTree = "<group>"; };
+		558DC5F2174D0859007BA274 /* vector_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vector_tests.cpp; sourceTree = "<group>"; };
+		558DC5FC174D088A007BA274 /* libShadingZenCpp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libShadingZenCpp.a; path = "../../../../Library/Developer/Xcode/DerivedData/ShadingZenCpp-cbgmxbhjhdfhekawunxisnvzyitm/Build/Products/Debug/libShadingZenCpp.a"; sourceTree = "<group>"; };
+		558DC5FE174D1A83007BA274 /* libboost_iostreams.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_iostreams.a; path = ../../dependencies/boost/stage/lib/libboost_iostreams.a; sourceTree = "<group>"; };
+		558DC5FF174D1A83007BA274 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../../dependencies/boost/stage/lib/libboost_system.a; sourceTree = "<group>"; };
+		558DC600174D1A83007BA274 /* libboost_unit_test_framework.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_unit_test_framework.a; path = ../../dependencies/boost/stage/lib/libboost_unit_test_framework.a; sourceTree = "<group>"; };
+		55AB9B12174D60B20067D7B7 /* bbox_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bbox_tests.cpp; sourceTree = "<group>"; };
+		55AB9B15174DDE7B0067D7B7 /* kd_tree_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = kd_tree_tests.cpp; path = ../../../tests/spatial/kd_tree_tests.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		558DC5D4174CFF3E007BA274 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				558DC601174D1A83007BA274 /* libboost_iostreams.a in Frameworks */,
+				558DC602174D1A84007BA274 /* libboost_system.a in Frameworks */,
+				558DC603174D1A84007BA274 /* libboost_unit_test_framework.a in Frameworks */,
+				558DC5FD174D088A007BA274 /* libShadingZenCpp.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		558DC5CE174CFF3E007BA274 = {
+			isa = PBXGroup;
+			children = (
+				558DC5FE174D1A83007BA274 /* libboost_iostreams.a */,
+				558DC5FF174D1A83007BA274 /* libboost_system.a */,
+				558DC600174D1A83007BA274 /* libboost_unit_test_framework.a */,
+				558DC5FC174D088A007BA274 /* libShadingZenCpp.a */,
+				558DC5D9174CFF3E007BA274 /* ShadingZenCppTests */,
+				558DC5D8174CFF3E007BA274 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		558DC5D8174CFF3E007BA274 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				558DC5D7174CFF3E007BA274 /* ShadingZenCppTests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		558DC5D9174CFF3E007BA274 /* ShadingZenCppTests */ = {
+			isa = PBXGroup;
+			children = (
+				55AB9B17174DDE830067D7B7 /* spatial */,
+				558DC5E9174D0859007BA274 /* Math */,
+				558DC5DC174CFF3E007BA274 /* ShadingZenCppTests.1 */,
+			);
+			path = ShadingZenCppTests;
+			sourceTree = "<group>";
+		};
+		558DC5E9174D0859007BA274 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				558DC5EA174D0859007BA274 /* frustum_tests.cpp */,
+				558DC5EB174D0859007BA274 /* intersection.cpp */,
+				558DC5EC174D0859007BA274 /* matrix4f_tests.cpp */,
+				558DC5ED174D0859007BA274 /* matrix_tests.cpp */,
+				558DC5EE174D0859007BA274 /* plane_tests.cpp */,
+				558DC5EF174D0859007BA274 /* quaternion_tests.cpp */,
+				558DC5F0174D0859007BA274 /* vector3_tests.cpp */,
+				558DC5F1174D0859007BA274 /* vector4_tests.cpp */,
+				558DC5F2174D0859007BA274 /* vector_tests.cpp */,
+				55AB9B12174D60B20067D7B7 /* bbox_tests.cpp */,
+			);
+			name = Math;
+			path = ../../../tests/Math;
+			sourceTree = "<group>";
+		};
+		55AB9B17174DDE830067D7B7 /* spatial */ = {
+			isa = PBXGroup;
+			children = (
+				55AB9B15174DDE7B0067D7B7 /* kd_tree_tests.cpp */,
+			);
+			name = spatial;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		558DC5D6174CFF3E007BA274 /* ShadingZenCppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 558DC5E0174CFF3E007BA274 /* Build configuration list for PBXNativeTarget "ShadingZenCppTests" */;
+			buildPhases = (
+				558DC5D3174CFF3E007BA274 /* Sources */,
+				558DC5D4174CFF3E007BA274 /* Frameworks */,
+				558DC5D5174CFF3E007BA274 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShadingZenCppTests;
+			productName = ShadingZenCppTests;
+			productReference = 558DC5D7174CFF3E007BA274 /* ShadingZenCppTests */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		558DC5CF174CFF3E007BA274 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Óscar Blasco Maestro";
+			};
+			buildConfigurationList = 558DC5D2174CFF3E007BA274 /* Build configuration list for PBXProject "ShadingZenCppTests" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 558DC5CE174CFF3E007BA274;
+			productRefGroup = 558DC5D8174CFF3E007BA274 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				558DC5D6174CFF3E007BA274 /* ShadingZenCppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		558DC5D3174CFF3E007BA274 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				558DC5F3174D0859007BA274 /* frustum_tests.cpp in Sources */,
+				558DC5F4174D0859007BA274 /* intersection.cpp in Sources */,
+				558DC5F5174D0859007BA274 /* matrix4f_tests.cpp in Sources */,
+				558DC5F6174D0859007BA274 /* matrix_tests.cpp in Sources */,
+				558DC5F7174D0859007BA274 /* plane_tests.cpp in Sources */,
+				558DC5F8174D0859007BA274 /* quaternion_tests.cpp in Sources */,
+				558DC5F9174D0859007BA274 /* vector3_tests.cpp in Sources */,
+				558DC5FA174D0859007BA274 /* vector4_tests.cpp in Sources */,
+				558DC5FB174D0859007BA274 /* vector_tests.cpp in Sources */,
+				55AB9B14174D60B20067D7B7 /* bbox_tests.cpp in Sources */,
+				55AB9B16174DDE7B0067D7B7 /* kd_tree_tests.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		558DC5DE174CFF3E007BA274 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		558DC5DF174CFF3E007BA274 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		558DC5E1174CFF3E007BA274 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					../../include,
+					../../dependencies/boost,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/ShadingZenCpp-cbgmxbhjhdfhekawunxisnvzyitm/Build/Products/Debug\"",
+					"\"$(SRCROOT)/../../dependencies/boost/stage/lib\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		558DC5E2174CFF3E007BA274 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					../../include,
+					../../dependencies/boost,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/ShadingZenCpp-cbgmxbhjhdfhekawunxisnvzyitm/Build/Products/Debug\"",
+					"\"$(SRCROOT)/../../dependencies/boost/stage/lib\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		558DC5D2174CFF3E007BA274 /* Build configuration list for PBXProject "ShadingZenCppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				558DC5DE174CFF3E007BA274 /* Debug */,
+				558DC5DF174CFF3E007BA274 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		558DC5E0174CFF3E007BA274 /* Build configuration list for PBXNativeTarget "ShadingZenCppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				558DC5E1174CFF3E007BA274 /* Debug */,
+				558DC5E2174CFF3E007BA274 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 558DC5CF174CFF3E007BA274 /* Project object */;
+}
