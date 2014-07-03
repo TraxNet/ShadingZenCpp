@@ -32,7 +32,10 @@ namespace shz{ namespace spatial{
 		}*/
 	};
 
-
+	/** 
+	 * Round robin discrimintaor partial specialization. The discrinator plane to parition the current set is choosen in 
+	 * a round robin secuence. This is the least efficient algorithm to generate a kd-tree.
+	 */
 	template<typename KDTreeTraits> struct plane_discriminator_category<KDTreeTraits, plane_roundrobin_discriminator_tag> {
 		/**
          * Constructor
@@ -74,7 +77,15 @@ namespace shz{ namespace spatial{
 			return ret;
 		}
 
+		/**
+		 * Given an input and information about the discriminator plane, parititions the input set into
+		 * two sub-sets using their median values (for the plane position). If all the items in the input 
+		 * set are in both sub-sets, or one of the sub-sets is empty, returns false to point the caller to
+		 * avoid creating two sub-sets
 
+		 * @return If all items are in both partitions or there is an empty partition  we can return false 
+		 * so that this is actually not partitioned and a leaf node should be created. Otherwise return true.
+		 */
 		inline bool partition_set(
 			const std::tuple<size_t, typename KDTreeTraits::discriminator_type>& params, 
 			std::vector<typename KDTreeTraits::pair_type>& input_set,
@@ -85,6 +96,8 @@ namespace shz{ namespace spatial{
             typename std::vector<typename KDTreeTraits::pair_type>::size_type items_in_both = 0;
             size_t dimension = current_depth%KDTreeTraits::max_dimensions;
             
+			// sort all items acordding to the current dimension and choose the median. That poin is the
+			// place where the parition plane is placed.
             std::sort(
                       input_set.begin(),
                       input_set.end(),

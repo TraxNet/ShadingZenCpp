@@ -1,3 +1,11 @@
+/**
+ * templated kd-tree
+ *
+ * References:
+ *	[1] On building fast kd-Trees for Ray Tracing, and on doing that in O(N log N). Ingo Wald & Vlastimil Havran
+ *  [2] http://www.lsi.upc.edu/~conrado/research/talks/sem-albcom07.pdf
+ */
+
 #ifndef __SHZ_MATH_KD_TREE__
 #define __SHZ_MATH_KD_TREE__
 
