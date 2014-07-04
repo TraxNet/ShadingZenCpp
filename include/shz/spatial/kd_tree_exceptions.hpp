@@ -11,7 +11,7 @@ namespace shz{ namespace spatial{
 	public:
 		kdtree_max_nodes_overflow_exception(const char *what) : reason(what){}
         
-        virtual const char* what() const noexcept { return reason.c_str(); }
+        virtual const char* what() const _NOEXCEPT { return reason.c_str(); }
         
         
 	};

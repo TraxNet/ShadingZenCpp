@@ -69,8 +69,9 @@ namespace shz{ namespace spatial{
 
 	template<typename KDTreeTraits> struct kd_tree_node {
 		typedef typename KDTreeTraits::size_type size_type;
+		typedef typename KDTreeTraits::discriminator_type discriminator_type;
 
-		kd_tree_node() : left_child(0), right_child(0), leaf_flag(false), first_item(0), num_items(0) {}
+		kd_tree_node() : left_child(-1), right_child(-1), leaf_flag(false), first_item(0), num_items(0) {}
 
 		inline bool is_leaf(){ return leaf_flag; }
 		inline bool is_empty(){ return num_items == 0; }
@@ -82,11 +83,20 @@ namespace shz{ namespace spatial{
 		inline void set_right_child(size_type child){ right_child = child; }
 		inline size_type get_left_child(){ return left_child; }
 		inline size_type get_right_child(){ return right_child; }
+		inline bool has_right_child(){ return right_child != size_type(-1); }
+		inline bool has_left_child(){ return left_child != size_type(-1); }
+		inline void set_discriminator(discriminator_type disc){ discriminator = disc; }
+		inline discriminator_type get_discrminator(){ return discriminator; }
+		inline void set_dimension(size_type dimension){ dimension = dimension; }
+		inline size_type get_dimension(){ return dimension; }
 
 	private:
-		size_type left_child, right_child;
-		bool leaf_flag;
-		size_type first_item, num_items;
+		size_type left_child, right_child; /* Index of the child nodes */
+		bool leaf_flag; /** Only leafs contain items */
+		size_type first_item; /** Index into the first contained item in this leaf */
+		size_type num_items; /** Number of contained items if this a leaf */
+		size_type dimension; /** Dimension where the splitting plane is placed i.e {x, y, z}*/
+		discriminator_type discriminator; /** splitting plane position along the discriminating dimension (i.e. x's value where the plane is placed)*/
 	};
 
 	template<typename KDTreeTraits> struct compact_kd_tree_node {
@@ -143,7 +153,8 @@ namespace shz{ namespace spatial{
     protected:
         std::vector<node_type> nodes; /** All nodes in the tree, orderes from to top to lowest-left node */
 		std::vector<pair_type> items; /** All items in the tree orderes in the same fasion as the nodes */
-  
+		Key key_bounds; /** Stores the size of the entire key space (ie, upper and lower limits of the enclosing boundingbox of the entire tree) */
+		
     public:
 		/** 
 		 * Given a set of pair_type objects, iteratively build the tree by paritioning the set 
@@ -173,6 +184,8 @@ namespace shz{ namespace spatial{
 
 			size_t dimension = 0;
 
+			key_bounds = compute_set_limits(vec); // Get upper and lower limits of the whole input set of keys
+
 			nodes_stack.push(node_type());
 			sets_stack.push(vec);  // The working set is  the whole input set at this point		
 
@@ -191,9 +204,12 @@ namespace shz{ namespace spatial{
 					continue;
 				}
                 
+				// Discriminating algorithm
                 discriminator_category_type plane_discriminator(dimension);
 
 				std::vector<pair_type> left_set, right_set;
+				// get the dimension along we are partitioning the space, and the value along that axis where our splitting 
+				// plane is placed.This informantion is stored in a tuple -> 'disciminator_params'
 				auto discriminator_params = plane_discriminator.choose_plane(current_set.begin(), current_set.end());
 				if(!plane_discriminator.partition_set(discriminator_params, current_set, left_set, right_set)){
 					// The cost of partition is equal or higher than no partition at all
@@ -206,8 +222,11 @@ namespace shz{ namespace spatial{
 				} else{
 					// Generate two subtrees, one for each sub partition of the current set
 					node_type left_node, right_node;
+
 					current_node.set_left_child(nodes.size()+1);
 					current_node.set_right_child(nodes.size()+2);
+					current_node.set_dimension(std::get<0>(discriminator_params));
+					current_node.set_discriminator(std::get<1>(discriminator_params));
 					
 					nodes.push_back(current_node);
 					nodes_stack.push(left_node);
@@ -234,6 +253,37 @@ namespace shz{ namespace spatial{
         inline bool empty() const { return size() == size_type(); }
 
 	private:
+
+		/** 
+		 * Computes the upper and lower limits of the given set. For a Key of type shz::math::bbox, 
+		 * that bould be a bbox enclosing the entire given set of keys. We do this by sorting
+		 * the set for each dimension (i.e x, y, z) and storing the upper and lower limits.
+		 *
+		 * This is done by sorting in each dimension for the upper and lower bounds. Could be done
+		 * better but this is done once per tree build.
+		 */
+		Key compute_set_limits(std::vector<typename traits::pair_type> &input_set){
+			Key bounds;
+
+			for(size_t current_dimension = 0; current_dimension < Key::num_dimensions; current_dimension++){
+				std::sort(
+                      std::begin(input_set),
+                      std::end(input_set),
+                      typename traits::less_than_key(current_dimension, traits::lower_bound));
+
+				bounds[current_dimension][traits::lower_bound] = input_set[0].first[current_dimension][traits::lower_bound];
+
+				std::sort(
+                      std::begin(input_set),
+                      std::end(input_set),
+                      typename traits::less_than_key(current_dimension, traits::upper_bound));
+				
+				bounds[current_dimension][traits::upper_bound] = input_set[0].first[current_dimension][traits::upper_bound];
+
+			}
+
+			return bounds;
+		}
 		
     };
 } }
