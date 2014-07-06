@@ -64,6 +64,7 @@ namespace shz{ namespace math{
 		}
         
         bounds_type& operator [] (size_t index){ return bounds[index]; }
+		const bounds_type& operator [] (size_t index) const { return bounds[index]; }
         
         friend std::ostream& operator << (std::ostream& os, const bbox<shz::math::f32, 3> &b){
             os << "[ lower:" << b.bounds[0] << " upper:" << b.bounds[1] << " ]";

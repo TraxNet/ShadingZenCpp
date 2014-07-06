@@ -15,6 +15,7 @@
 #include <tuple>
 #include <stack>
 #include <shz/math/math.hpp>
+#include <shz/math/intersection.hpp>
 #include <shz/spatial/kd_tree_discriminators.hpp>
 #include <shz/spatial/kd_tree_exceptions.hpp>
 
@@ -114,7 +115,7 @@ namespace shz{ namespace spatial{
 		inline bool is_leaf(){ return left_child & LEAF_FLAG; };
 		size_type left_child;
 
-		bool is_empty(){ return this->left_child&SIZE_FLAG == 0; }
+		bool is_empty(){ return (this->left_child&SIZE_FLAG) == 0; }
 		void mark_as_leaf(){ this->left_child |= LEAF_FLAG; }
 		size_type get_num_nodes(){ return this->left_child&SIZE_FLAG; }
 		void set_num_items(size_type num_nodes){ this->left_child |= num_nodes&CHILD_POINTER_BITS; }
@@ -240,6 +241,22 @@ namespace shz{ namespace spatial{
 			}
 
 		}
+        
+        /**
+         * Traverse the tree and for each node, check in which side the input lays so that we can 
+         * go down the tree discarding child nodes
+         *
+         */
+        template<typename IntersecType, typename Func> bool inline traverse(IntersecType input, Func callback){
+            Key current_bound = key_bounds;
+            
+            
+            while(true){
+                
+            }
+            
+            return false;
+        }
               
         kd_tree() { }
 		/** We consider here that a key-value pair is passed to this constructor */
@@ -260,11 +277,13 @@ namespace shz{ namespace spatial{
 		 * the set for each dimension (i.e x, y, z) and storing the upper and lower limits.
 		 *
 		 * This is done by sorting in each dimension for the upper and lower bounds. Could be done
-		 * better but this is done once per tree build.
+		 * better but this is done once per tree build...
 		 */
-		Key compute_set_limits(std::vector<typename traits::pair_type> &input_set){
+		static inline Key compute_set_limits(std::vector<typename traits::pair_type> &input_set) {
 			Key bounds;
 
+            if(input_set.size() <= 0) return bounds;
+            
 			for(size_t current_dimension = 0; current_dimension < Key::num_dimensions; current_dimension++){
 				std::sort(
                       std::begin(input_set),
@@ -284,6 +303,32 @@ namespace shz{ namespace spatial{
 
 			return bounds;
 		}
+        
+        /**
+         * Computes a new key by splitting the input key along a dimension
+         * In terms of a boundingbox, this bould be splitting the bounding box
+         * in a plane placed at 'discriminator' along the 'dimension' axis. Then 
+         * returing the upper or lower 'bound' bbox. 
+         * This method is used to generate an smaller enclosing bbox for each
+         * node when we traverse the tree downwards so that we can query if 
+         * something hits the smaller nodes or can be discarded in the search
+         *
+         * @param input_key Input key that is to be splitted
+         * @param dimension Axis where the splitting plane is placed
+         * @param discriminator Exact place along the dimension axis where the
+         *        the splitting plane is placed
+         * @param bound Specifies which one (upper or lower bound) is going to
+         *        be returned 
+         * @return Returns a new (smaller) bbox as a result of the split
+         */
+        static inline Key split_key_by_discriminator(Key &input_key, size_type dimension, discriminator_type discriminator, size_t bound) {
+            Key ret_value = input_key;
+            
+            ret_value[bound][dimension] = discriminator;
+            
+            return ret_value;
+            
+        }
 		
     };
 } }
